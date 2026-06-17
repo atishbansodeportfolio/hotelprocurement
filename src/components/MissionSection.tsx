@@ -83,11 +83,11 @@ export default function MissionSection() {
               placeholder="Have a project in mind?"
               value={projectInput}
               onChange={(e) => setProjectInput(e.target.value)}
-              className="flex-grow pl-5 pr-2 py-2 text-xs md:text-sm text-brand-charcoal placeholder:text-brand-charcoal/40 font-light bg-transparent border-none outline-none focus:ring-0 focus:outline-none text-left"
+              className="flex-grow pl-4 md:pl-5 pr-2 py-1.5 md:py-2 text-xs md:text-sm text-brand-charcoal placeholder:text-brand-charcoal/40 font-light bg-transparent border-none outline-none focus:ring-0 focus:outline-none text-left"
             />
             <button
               type="submit"
-              className="inline-flex items-center justify-center px-6 py-2.5 text-xxs md:text-xs font-semibold uppercase tracking-wider text-white bg-brand-charcoal rounded-full hover:bg-brand-plum transition-all duration-300 cursor-pointer"
+              className="inline-flex items-center justify-center px-4 py-2 md:px-6 md:py-2.5 text-[10px] md:text-xs font-semibold uppercase tracking-wide md:tracking-wider text-white bg-brand-charcoal rounded-full hover:bg-brand-plum transition-all duration-300 cursor-pointer whitespace-nowrap"
             >
               Request a Quote
             </button>

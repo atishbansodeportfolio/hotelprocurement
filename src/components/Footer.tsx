@@ -19,10 +19,10 @@ export default function Footer() {
   return (
     <footer className="bg-brand-cream border-t border-brand-charcoal/10 py-16 md:py-20 text-brand-charcoal">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-12 pb-12 border-b border-brand-charcoal/10">
+        <div className="grid grid-cols-2 md:grid-cols-12 gap-10 md:gap-12 pb-12 border-b border-brand-charcoal/10">
           
           {/* Brand Logo column */}
-          <div className="md:col-span-4 flex flex-col space-y-4">
+          <div className="col-span-2 md:col-span-4 flex flex-col space-y-4">
             <a
               href="#"
               onClick={(e) => {
@@ -40,7 +40,7 @@ export default function Footer() {
           </div>
 
           {/* Quick Links Column */}
-          <div className="md:col-span-3">
+          <div className="col-span-1 md:col-span-3">
             <h4 className="text-[10px] font-semibold uppercase tracking-widest text-brand-gold mb-4">
               Explore
             </h4>
@@ -84,7 +84,7 @@ export default function Footer() {
           </div>
 
           {/* Offices Column */}
-          <div className="md:col-span-5 grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-4">
+          <div className="col-span-1 md:col-span-5 grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-4">
             <div>
               <h5 className="text-[9px] font-semibold uppercase tracking-wider text-brand-gold mb-3">
                 Irving TX

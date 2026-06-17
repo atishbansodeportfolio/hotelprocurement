@@ -8,7 +8,7 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 20) {
+      if (window.scrollY > window.innerHeight - 80) {
         setIsScrolled(true);
       } else {
         setIsScrolled(false);
@@ -29,7 +29,7 @@ export default function Navbar() {
   const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
     setIsOpen(false);
-    
+
     // Disable body scroll when drawer is closed
     document.body.style.overflow = 'unset';
 
@@ -61,18 +61,18 @@ export default function Navbar() {
   return (
     <>
       <nav
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-transparent ${
-          isScrolled ? 'py-5' : 'py-7'
-        }`}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
+            ? 'bg-brand-cream/40 backdrop-blur-sm shadow-xxs py-4'
+            : 'bg-transparent py-7'
+          }`}
       >
         <div className="w-full px-6 md:px-12 lg:px-16">
           <div className="flex items-center justify-between">
             {/* Logo */}
             <a
               href="#"
-              className={`flex items-center space-x-1 text-2xl font-semibold tracking-tight transition-colors duration-300 ${
-                isDarkTheme ? 'text-white' : 'text-brand-charcoal'
-              }`}
+              className={`flex items-center space-x-1 text-2xl font-semibold tracking-tight transition-colors duration-300 ${isDarkTheme ? 'text-white' : 'text-brand-charcoal'
+                }`}
               onClick={(e) => {
                 e.preventDefault();
                 setIsOpen(false);
@@ -119,10 +119,10 @@ export default function Navbar() {
                     initial={{ opacity: 0, x: -30 }}
                     animate={{ opacity: 1, x: 0 }}
                     exit={{ opacity: 0, x: -30 }}
-                    transition={{ 
-                      duration: 0.5, 
-                      delay: 0.1 + idx * 0.06, 
-                      ease: [0.16, 1, 0.3, 1] 
+                    transition={{
+                      duration: 0.5,
+                      delay: 0.1 + idx * 0.06,
+                      ease: [0.16, 1, 0.3, 1]
                     }}
                   >
                     <a

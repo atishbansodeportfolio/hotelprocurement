@@ -65,7 +65,7 @@ export default function ProjectCarousel() {
   };
 
   return (
-    <section id="our-work" className="pt-12 md:pt-16 pb-12 md:pb-16 bg-brand-cream border-t border-brand-charcoal/5">
+    <section id="our-work" className="pt-12 md:pt-16 pb-12 md:pb-16 bg-brand-cream border-t border-brand-charcoal/5 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16">
@@ -103,7 +103,7 @@ export default function ProjectCarousel() {
         {/* Carousel Container */}
         <div
           ref={scrollRef}
-          className="flex space-x-6 md:space-x-8 overflow-x-auto no-scrollbar scroll-smooth snap-x snap-mandatory py-4 -mx-6 px-6 lg:-mx-8 lg:px-8 cursor-grab active:cursor-grabbing"
+          className="flex space-x-6 md:space-x-8 overflow-x-auto no-scrollbar scroll-smooth snap-x snap-mandatory py-4 cursor-grab active:cursor-grabbing"
         >
           {projects.map((project, idx) => (
             <motion.div
@@ -112,10 +112,10 @@ export default function ProjectCarousel() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.6, delay: idx * 0.1 }}
-              className="flex-shrink-0 w-[300px] md:w-[420px] snap-start"
+              className="flex-shrink-0 w-[260px] md:w-[420px] snap-start"
             >
               {/* Card Image Container */}
-              <div className="relative aspect-[4/3] rounded-2xl overflow-hidden mb-6 group shadow-sm bg-brand-charcoal/5 border border-brand-charcoal/10">
+              <div className="relative aspect-[4/5] md:aspect-[4/3] rounded-2xl overflow-hidden mb-6 group shadow-sm bg-brand-charcoal/5 border border-brand-charcoal/10">
                 {project.isPlaceholder ? (
                   /* Elegant placeholder card styling */
                   <div className="absolute inset-0 flex flex-col items-center justify-center p-6 bg-gradient-to-br from-[#ECE7DF] to-[#E3DCD2] transition-colors duration-500 group-hover:from-[#E3DCD2] group-hover:to-[#D8CEBF]">

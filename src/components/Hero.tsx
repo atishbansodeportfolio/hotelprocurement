@@ -6,7 +6,7 @@ export default function Hero() {
     <section className="relative h-screen flex items-center justify-start overflow-hidden bg-brand-charcoal">
       {/* Background Image */}
       <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-transform duration-10000 ease-out scale-105"
+        className="absolute inset-0 bg-cover bg-[70%_center] md:bg-center bg-no-repeat transition-transform duration-10000 ease-out scale-105"
         style={{
           backgroundImage: "url('/images/new-hero.jpeg')",
         }}
@@ -31,7 +31,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="text-4xl md:text-6xl lg:text-7xl font-light tracking-tight text-white mb-6 leading-[1.05] font-sans max-w-2xl"
+          className="text-[2.5rem] md:text-6xl lg:text-7xl font-light tracking-tight text-white mb-6 leading-[1.1] md:leading-[1.05] font-sans max-w-2xl"
         >
           Elegance in <br className="hidden md:inline" /> Every Element.
         </motion.h1>
@@ -63,7 +63,7 @@ export default function Hero() {
                 });
               }
             }}
-            className="inline-flex items-center justify-center px-6 py-2.5 text-xxs md:text-xs font-semibold uppercase tracking-wider text-brand-charcoal bg-white rounded-full hover:bg-brand-plum hover:text-white transition-all duration-300 transform hover:scale-105"
+            className="inline-flex items-center justify-center px-5 py-2 md:px-6 md:py-2.5 text-[10px] md:text-xs font-semibold uppercase tracking-wider text-brand-charcoal bg-white rounded-full hover:bg-brand-plum hover:text-white transition-all duration-300 transform hover:scale-105"
           >
             Request a Quote
           </button>
