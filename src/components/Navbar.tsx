@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Plus, Minus } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -41,6 +43,8 @@ export default function Navbar() {
         top: targetPosition,
         behavior: 'smooth',
       });
+    } else {
+      navigate('/' + href);
     }
   };
 
@@ -71,17 +75,28 @@ export default function Navbar() {
             {/* Logo */}
             <a
               href="#"
-              className={`flex items-center space-x-1 text-2xl font-semibold tracking-tight transition-colors duration-300 ${isDarkTheme ? 'text-white' : 'text-brand-charcoal'
+              className={`flex items-center space-x-3 transition-colors duration-300 ${isDarkTheme ? 'text-white' : 'text-brand-charcoal'
                 }`}
               onClick={(e) => {
                 e.preventDefault();
                 setIsOpen(false);
                 document.body.style.overflow = 'unset';
-                window.scrollTo({ top: 0, behavior: 'smooth' });
+                if (window.location.pathname !== '/') {
+                  navigate('/');
+                } else {
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }
               }}
             >
-              <span>Divine</span>
-              <span className={`${isDarkTheme ? 'text-brand-gold' : 'text-brand-plum'} font-bold`}>*</span>
+              <img 
+                src="/logo-hotel-procurement.png" 
+                alt="Divine Design & Procurement Logo" 
+                className="h-10 w-auto object-contain"
+              />
+              <div className="flex flex-col text-left">
+                <span className="text-xl font-semibold tracking-tight leading-none">Divine</span>
+                <span className={`text-[9px] uppercase tracking-[0.22em] font-semibold mt-1.5 leading-none ${isDarkTheme ? 'text-brand-gold' : 'text-brand-plum'}`}>Procurement</span>
+              </div>
             </a>
 
             {/* Right Side Plus/Minus Toggle */}
@@ -138,7 +153,7 @@ export default function Navbar() {
             </div>
 
             {/* Drawer Footer Details */}
-            <div className="max-w-7xl mx-auto w-full px-8 md:px-24 pb-12 border-t border-white/10 pt-6 flex flex-col sm:flex-row items-start sm:items-center justify-between text-white/40 text-xxs font-light tracking-widest uppercase gap-4">
+            <div className="max-w-7xl mx-auto w-full px-8 md:px-24 pb-12 border-t border-white/10 pt-6 flex flex-col sm:flex-row items-start sm:items-center justify-between text-white/40 text-xs font-light tracking-widest uppercase gap-4">
               <span>Divine Design & Procurement LLC</span>
               <a href="mailto:yogin@hotelprocurement.net" className="hover:text-brand-gold transition-colors">
                 yogin@hotelprocurement.net

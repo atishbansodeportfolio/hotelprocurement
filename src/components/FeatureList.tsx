@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronRight } from 'lucide-react';
 
@@ -44,6 +44,13 @@ export default function FeatureList() {
       image: '/images/turnkey-projection.jpeg',
     },
   ];
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setActiveIndex((prev) => (prev + 1) % features.length);
+    }, 5000); // cycle every 5 seconds
+    return () => clearInterval(timer);
+  }, [activeIndex, features.length]);
 
   return (
     <section id="services" className="pt-12 md:pt-16 pb-24 md:pb-36 bg-brand-cream border-t border-brand-charcoal/5">

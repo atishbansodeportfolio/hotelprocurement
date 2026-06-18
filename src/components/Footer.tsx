@@ -1,6 +1,9 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export default function Footer() {
+  const navigate = useNavigate();
+
   const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
     const targetElement = document.querySelector(href);
@@ -11,6 +14,8 @@ export default function Footer() {
         top: targetPosition,
         behavior: 'smooth',
       });
+    } else {
+      navigate('/' + href);
     }
   };
 
@@ -27,12 +32,23 @@ export default function Footer() {
               href="#"
               onClick={(e) => {
                 e.preventDefault();
-                window.scrollTo({ top: 0, behavior: 'smooth' });
+                if (window.location.pathname !== '/') {
+                  navigate('/');
+                } else {
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }
               }}
-              className="inline-flex items-center space-x-1 text-2xl font-semibold tracking-tight"
+              className="inline-flex items-center space-x-3 text-brand-charcoal"
             >
-              <span>Divine</span>
-              <span className="text-brand-plum font-bold">*</span>
+              <img 
+                src="/logo-hotel-procurement.png" 
+                alt="Divine Design & Procurement Logo" 
+                className="h-10 w-auto object-contain"
+              />
+              <div className="flex flex-col text-left">
+                <span className="text-xl font-semibold tracking-tight leading-none">Divine</span>
+                <span className="text-[9px] uppercase tracking-[0.22em] font-semibold mt-1.5 leading-none text-brand-plum">Procurement</span>
+              </div>
             </a>
             <p className="text-xs md:text-sm text-brand-charcoal/50 font-light max-w-xs leading-relaxed tracking-wide">
               Turnkey hotel FF&E design, sourcing, and logistics for premium hospitality properties globally.

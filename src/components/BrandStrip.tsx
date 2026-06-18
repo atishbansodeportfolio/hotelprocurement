@@ -40,7 +40,7 @@ export default function BrandStrip() {
               <img
                 src={brand.logo}
                 alt={`${brand.name} logo`}
-                className="max-h-[85%] max-w-[85%] object-contain filter grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300"
+                className="max-h-[85%] max-w-[85%] object-contain opacity-100 md:opacity-60 grayscale-0 md:grayscale md:group-hover:grayscale-0 md:group-hover:opacity-100 transition-all duration-300"
                 loading="lazy"
               />
             </div>
@@ -57,7 +57,7 @@ export default function BrandStrip() {
               <img
                 src={brand.logo}
                 alt={`${brand.name} logo`}
-                className="max-h-[85%] max-w-[85%] object-contain filter grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300"
+                className="max-h-[85%] max-w-[85%] object-contain opacity-100 md:opacity-60 grayscale-0 md:grayscale md:group-hover:grayscale-0 md:group-hover:opacity-100 transition-all duration-300"
                 loading="lazy"
               />
             </div>
