@@ -5,7 +5,7 @@ export default function Hero() {
   return (
     <section className="relative h-screen flex items-center justify-start overflow-hidden bg-brand-charcoal">
       {/* Background Image */}
-      <div 
+      <div
         className="absolute inset-0 bg-cover bg-[70%_center] md:bg-center bg-no-repeat transition-transform duration-10000 ease-out scale-105"
         style={{
           backgroundImage: "url('/images/new-hero.jpeg')",
@@ -26,7 +26,7 @@ export default function Hero() {
         >
           Hospitality Procurement, Perfected.
         </motion.span>
-        
+
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}

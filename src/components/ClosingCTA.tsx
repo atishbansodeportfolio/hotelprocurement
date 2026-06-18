@@ -24,7 +24,7 @@ export default function ClosingCTA() {
     <section className="relative h-[50vh] md:h-[65vh] w-full overflow-hidden bg-brand-charcoal flex items-center justify-center">
       {/* Background Image */}
       <motion.div
-        className="absolute inset-0 w-full h-[120%] bg-cover bg-center bg-no-repeat"
+        className="absolute top-[-30px] bottom-[-30px] left-0 right-0 w-full bg-cover bg-center bg-no-repeat"
         style={{
           backgroundImage: "url('/images/Hotel_exterior_with_sparkling_pool_202606172336.jpeg')",
           y: yTranslate,

@@ -10,7 +10,7 @@ export default function TransitionStrip() {
   return (
     <div className="relative w-full h-[180px] md:h-[280px] overflow-hidden bg-brand-charcoal">
       <motion.div
-        className="absolute inset-0 w-full h-[120%] bg-cover bg-center bg-no-repeat"
+        className="absolute top-[-30px] bottom-[-30px] left-0 right-0 w-full bg-cover bg-center bg-no-repeat"
         style={{
           backgroundImage: "url('/images/Staircase_with_glass_balustrade_202606172336.jpeg')",
           y: yTranslate,

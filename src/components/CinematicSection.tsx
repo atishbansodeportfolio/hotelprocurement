@@ -11,7 +11,7 @@ export default function CinematicSection() {
     <section className="relative h-[60vh] md:h-[75vh] w-full overflow-hidden bg-brand-charcoal flex items-center justify-center">
       {/* Cinematic Background Image */}
       <motion.div
-        className="absolute inset-0 w-full h-[120%] bg-cover bg-center bg-no-repeat"
+        className="absolute top-[-50px] bottom-[-50px] left-0 right-0 w-full bg-cover bg-center bg-no-repeat"
         style={{
           backgroundImage: "url('/images/Hotel_rooftop_terrace_lounge_pool_202606172336.jpeg')",
           y: yTranslate,
