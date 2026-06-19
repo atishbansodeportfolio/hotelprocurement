@@ -261,7 +261,18 @@ export default function OfferingLookbookPage() {
                 return (
                   <button
                     key={category.name}
-                    onClick={() => setActiveCategory(category)}
+                    onClick={() => {
+                      setActiveCategory(category);
+                      // Scroll to images section on mobile/tablet view (screens smaller than lg breakpoint: 1024px)
+                      if (window.innerWidth < 1024) {
+                        const galleryElement = document.getElementById('lookbook-gallery');
+                        if (galleryElement) {
+                          const yOffset = -100; // Offset for sticky navbar + breathing space
+                          const y = galleryElement.getBoundingClientRect().top + window.scrollY + yOffset;
+                          window.scrollTo({ top: y, behavior: 'smooth' });
+                        }
+                      }
+                    }}
                     className={`flex items-center justify-between w-full group text-left cursor-pointer transition-all duration-300 relative py-1 text-sm ${
                       isActive 
                         ? 'text-brand-plum font-semibold' 
@@ -294,7 +305,7 @@ export default function OfferingLookbookPage() {
           </div>
 
           {/* Right Column - Catalog Gallery Grid */}
-          <div className="w-full lg:flex-1">
+          <div id="lookbook-gallery" className="w-full lg:flex-1">
             <AnimatePresence mode="wait">
               <motion.div
                 key={activeCategory.name}
