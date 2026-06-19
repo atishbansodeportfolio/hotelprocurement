@@ -1,31 +1,79 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Plus, Minus } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [hideNavbar, setHideNavbar] = useState(false);
+  const [ourWorkOpen, setOurWorkOpen] = useState(false);
   const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > window.innerHeight - 80) {
+      const path = location.pathname;
+      // Pages that feature a full-bleed dark hero header at the top
+      const hasDarkHero = path === '/' || path === '/about';
+
+      if (!hasDarkHero) {
         setIsScrolled(true);
       } else {
-        setIsScrolled(false);
+        const threshold = path === '/' ? window.innerHeight - 80 : 120;
+        if (window.scrollY > threshold) {
+          setIsScrolled(true);
+        } else {
+          setIsScrolled(false);
+        }
+      }
+
+      // Hide navbar when scrolled on /how-its-done page
+      if (path === '/how-its-done') {
+        if (window.scrollY > 50) {
+          setHideNavbar(true);
+        } else {
+          setHideNavbar(false);
+        }
+      } else {
+        setHideNavbar(false);
       }
     };
+    
+    handleScroll();
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [location.pathname]);
 
-  const navLinks = [
-    { name: 'Services', href: '#services' },
-    { name: 'Our Work', href: '#our-work' },
-    { name: 'Process', href: '#process' },
-    { name: 'Insights', href: '#insights' },
-    { name: 'Contact', href: '#contact' },
+  useEffect(() => {
+    if (!isOpen) {
+      setOurWorkOpen(false);
+    }
+  }, [isOpen]);
+
+  interface SubLink {
+    name: string;
+    href: string;
+  }
+
+  interface NavLink {
+    name: string;
+    href?: string;
+    subLinks?: SubLink[];
+  }
+
+  const navLinks: NavLink[] = [
+    { name: 'About Us', href: '/about' },
+    { 
+      name: 'Our Work', 
+      subLinks: [
+        { name: 'Projects', href: '/projects' },
+        { name: 'Services', href: '/services' }
+      ]
+    },
+    { name: 'Lookbook', href: '/services/offerings/premium-casegoods' },
+    { name: 'How It\'s Done', href: '/how-its-done' },
+    { name: 'Contact', href: '#contact' }
   ];
 
   const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
@@ -34,6 +82,12 @@ export default function Navbar() {
 
     // Disable body scroll when drawer is closed
     document.body.style.overflow = 'unset';
+
+    if (href.startsWith('/')) {
+      navigate(href);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    }
 
     const targetElement = document.querySelector(href);
     if (targetElement) {
@@ -65,10 +119,15 @@ export default function Navbar() {
   return (
     <>
       <nav
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
-            ? 'bg-brand-cream/40 backdrop-blur-sm shadow-xxs py-4'
-            : 'bg-transparent py-7'
-          }`}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+          hideNavbar && !isOpen ? 'transform -translate-y-full opacity-0 pointer-events-none' : ''
+        } ${
+          isOpen
+            ? 'bg-transparent ' + (isScrolled ? 'py-4' : 'py-7')
+            : isScrolled
+              ? 'bg-brand-cream/40 backdrop-blur-sm shadow-xxs py-4'
+              : 'bg-transparent py-7'
+        }`}
       >
         <div className="w-full px-6 md:px-12 lg:px-16">
           <div className="flex items-center justify-between">
@@ -128,27 +187,78 @@ export default function Navbar() {
             {/* Links Content Container */}
             <div className="flex-grow flex flex-col justify-center max-w-7xl mx-auto w-full px-8 md:px-24">
               <div className="flex flex-col space-y-6 md:space-y-8 text-left">
-                {navLinks.map((link, idx) => (
-                  <motion.div
-                    key={link.name}
-                    initial={{ opacity: 0, x: -30 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    exit={{ opacity: 0, x: -30 }}
-                    transition={{
-                      duration: 0.5,
-                      delay: 0.1 + idx * 0.06,
-                      ease: [0.16, 1, 0.3, 1]
-                    }}
-                  >
-                    <a
-                      href={link.href}
-                      onClick={(e) => handleLinkClick(e, link.href)}
-                      className="text-3xl md:text-5xl font-extralight tracking-tight text-white hover:text-brand-gold hover:pl-4 transition-all duration-300 block"
+                {navLinks.map((link, idx) => {
+                  if (link.subLinks) {
+                    return (
+                      <motion.div
+                        key={link.name}
+                        initial={{ opacity: 0, x: -30 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        exit={{ opacity: 0, x: -30 }}
+                        transition={{
+                          duration: 0.5,
+                          delay: 0.1 + idx * 0.06,
+                          ease: [0.16, 1, 0.3, 1]
+                        }}
+                        className="flex flex-col"
+                      >
+                        <button
+                          onClick={() => setOurWorkOpen(!ourWorkOpen)}
+                          className="text-3xl md:text-5xl font-extralight tracking-tight text-white hover:text-brand-gold text-left focus:outline-none transition-all duration-300 flex items-center gap-4 cursor-pointer"
+                        >
+                          <span>{link.name}</span>
+                          <span className={`text-xl md:text-2xl font-light text-white/40 transition-transform duration-300 ${ourWorkOpen ? 'rotate-90' : ''}`}>
+                            ➔
+                          </span>
+                        </button>
+                        <AnimatePresence>
+                          {ourWorkOpen && (
+                            <motion.div
+                              initial={{ height: 0, opacity: 0 }}
+                              animate={{ height: 'auto', opacity: 1 }}
+                              exit={{ height: 0, opacity: 0 }}
+                              transition={{ duration: 0.3, ease: 'easeInOut' }}
+                              className="pl-6 md:pl-10 mt-3 md:mt-4 space-y-3 md:space-y-4 overflow-hidden border-l border-brand-gold/25"
+                            >
+                              {link.subLinks.map((subLink) => (
+                                <a
+                                  key={subLink.name}
+                                  href={subLink.href}
+                                  onClick={(e) => handleLinkClick(e, subLink.href)}
+                                  className="text-xl md:text-3xl font-extralight tracking-tight text-white/80 hover:text-brand-gold hover:pl-2 transition-all duration-300 block"
+                                >
+                                  {subLink.name}
+                                </a>
+                              ))}
+                            </motion.div>
+                          )}
+                        </AnimatePresence>
+                      </motion.div>
+                    );
+                  }
+
+                  return (
+                    <motion.div
+                      key={link.name}
+                      initial={{ opacity: 0, x: -30 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      exit={{ opacity: 0, x: -30 }}
+                      transition={{
+                        duration: 0.5,
+                        delay: 0.1 + idx * 0.06,
+                        ease: [0.16, 1, 0.3, 1]
+                      }}
                     >
-                      {link.name}
-                    </a>
-                  </motion.div>
-                ))}
+                      <a
+                        href={link.href}
+                        onClick={(e) => handleLinkClick(e, link.href!)}
+                        className="text-3xl md:text-5xl font-extralight tracking-tight text-white hover:text-brand-gold hover:pl-4 transition-all duration-300 block"
+                      >
+                        {link.name}
+                      </a>
+                    </motion.div>
+                  );
+                })}
               </div>
             </div>
 

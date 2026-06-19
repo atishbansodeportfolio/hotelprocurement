@@ -43,9 +43,9 @@ function Counter({ target, duration = 1500, suffix = "" }: CounterProps) {
 
 export default function StatsBand() {
   const stats = [
-    { target: 10, suffix: '+', label: 'Years of Experience' },
-    { target: 18, suffix: '+', label: 'Projects Completed' },
-    { target: 100, suffix: '+', label: 'Happy Clients' },
+    { target: 15, suffix: '+', label: 'Years of Experience' },
+    { target: 150, suffix: '+', label: 'Projects Completed' },
+    { target: 300, suffix: '+', label: 'Happy Clients' },
   ];
 
   return (

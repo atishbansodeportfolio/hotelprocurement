@@ -17,13 +17,13 @@ export default function FeatureList() {
       id: 0,
       title: 'Direct Global Sourcing',
       description: 'Zero middlemen, transparent pricing, direct partnerships with top-tier manufacturing facilities. We pass the cost savings directly to you while ensuring premium material specifications.',
-      image: '/images/direct-global-sourcing.jpeg',
+      image: '/services/direct-global-service.png',
     },
     {
       id: 1,
       title: 'Custom Furniture',
       description: 'Casegoods & soft seating tailored to your brand standard. We collaborate with master craftsmen to develop shop drawings and prototypes that match your specific design directives.',
-      image: '/images/Designer_hands_sketching_armchair_202606172336.jpeg',
+      image: '/services/custom-furniture.png',
     },
     {
       id: 2,
@@ -35,7 +35,7 @@ export default function FeatureList() {
       id: 3,
       title: 'Global Logistics',
       description: 'Timely delivery with precision, end to end. We manage consolidation, freight, customs clearance, and local warehousing to ensure materials arrive exactly when the site is ready.',
-      image: '/images/global-logistic.jpeg',
+      image: '/services/global-logistics.png',
     },
     {
       id: 4,

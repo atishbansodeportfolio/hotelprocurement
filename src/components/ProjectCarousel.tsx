@@ -210,7 +210,7 @@ export default function ProjectCarousel() {
                   onClick={() => {
                     if (offset === -1) handlePrev();
                     if (offset === 1) handleNext();
-                    if (offset === 0) navigate(`/projectt/${project.slug}`);
+                    if (offset === 0) navigate(`/projects/${project.slug}`);
                   }}
                   onMouseEnter={() => {
                     if (isActive) setHoveredIndex(idx);

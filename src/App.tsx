@@ -14,7 +14,13 @@ import FAQ from './components/FAQ';
 import ClosingCTA from './components/ClosingCTA';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
-import ProjectDetailsPage from './components/ProjectDetailsPage';
+import ProjectDetailsPage from './projects';
+import ProjectsOverviewPage from './projects/ProjectsOverviewPage';
+import AboutUsPage from './about-us';
+import ServicesPage from './services';
+import OfferingLookbookPage from './services/OfferingLookbookPage';
+import HomeLookbookSection from './components/HomeLookbookSection';
+import HowItsDonePage from './how-its-done';
 
 function ScrollToHash() {
   const { hash, pathname } = useLocation();
@@ -56,6 +62,9 @@ function Home() {
       {/* Split details layout with vertical interactive features and sticky image swap */}
       <FeatureList />
 
+      {/* Grid of Lookbook categories teaser showcase */}
+      <HomeLookbookSection />
+
       {/* Cinematic Parallax Overlay Banner */}
       <CinematicSection />
 
@@ -76,9 +85,6 @@ function Home() {
 
       {/* Closing Pool Background Banner CTA */}
       <ClosingCTA />
-
-      {/* Contact Inquiry Form & HQ Sourcing Office Locations */}
-      <Contact />
     </>
   );
 }
@@ -97,9 +103,17 @@ function App() {
         <main>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/projectt/:clientName" element={<ProjectDetailsPage />} />
+            <Route path="/about" element={<AboutUsPage />} />
+            <Route path="/services" element={<ServicesPage />} />
+            <Route path="/services/offerings/:slug" element={<OfferingLookbookPage />} />
+            <Route path="/how-its-done" element={<HowItsDonePage />} />
+            <Route path="/projects" element={<ProjectsOverviewPage />} />
+            <Route path="/projects/:clientName" element={<ProjectDetailsPage />} />
           </Routes>
         </main>
+
+        {/* Global Contact Form */}
+        <Contact />
 
         {/* Site Footer */}
         <Footer />

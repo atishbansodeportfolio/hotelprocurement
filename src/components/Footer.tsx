@@ -6,6 +6,11 @@ export default function Footer() {
 
   const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
+    if (href.startsWith('/')) {
+      navigate(href);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    }
     const targetElement = document.querySelector(href);
     if (targetElement) {
       const navHeight = 80;
@@ -62,32 +67,32 @@ export default function Footer() {
             </h4>
             <div className="flex flex-col space-y-3">
               <a
-                href="#services"
-                onClick={(e) => handleLinkClick(e, '#services')}
+                href="/about"
+                onClick={(e) => handleLinkClick(e, '/about')}
                 className="text-xs md:text-sm text-brand-charcoal/80 hover:text-brand-plum transition-colors font-light tracking-wide"
               >
-                Services
+                About Us
               </a>
               <a
-                href="#our-work"
-                onClick={(e) => handleLinkClick(e, '#our-work')}
+                href="/projects"
+                onClick={(e) => handleLinkClick(e, '/projects')}
                 className="text-xs md:text-sm text-brand-charcoal/80 hover:text-brand-plum transition-colors font-light tracking-wide"
               >
-                Our Work
+                Projects
               </a>
               <a
-                href="#process"
-                onClick={(e) => handleLinkClick(e, '#process')}
+                href="/services/offerings/premium-casegoods"
+                onClick={(e) => handleLinkClick(e, '/services/offerings/premium-casegoods')}
                 className="text-xs md:text-sm text-brand-charcoal/80 hover:text-brand-plum transition-colors font-light tracking-wide"
               >
-                Process
+                Lookbook
               </a>
               <a
-                href="#insights"
-                onClick={(e) => handleLinkClick(e, '#insights')}
+                href="/how-its-done"
+                onClick={(e) => handleLinkClick(e, '/how-its-done')}
                 className="text-xs md:text-sm text-brand-charcoal/80 hover:text-brand-plum transition-colors font-light tracking-wide"
               >
-                Insights
+                How It's Done
               </a>
               <a
                 href="#contact"

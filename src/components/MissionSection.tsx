@@ -40,19 +40,21 @@ export default function MissionSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8 }}
-          className="text-4xl md:text-6xl lg:text-7xl font-light tracking-tight text-brand-charcoal leading-[1.15] mb-10"
+          className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-light tracking-tight text-brand-charcoal leading-[1.2] md:leading-[1.15] mb-10"
         >
-          Where your vision <br />
+          Where your vision <br className="hidden md:inline" />
           finds its{' '}
-          <span className="inline-block align-middle mx-2 md:mx-3 w-20 md:w-32 h-10 md:h-16 rounded-full overflow-hidden border border-brand-plum/20 shadow-md transform -rotate-2 hover:rotate-0 transition-transform duration-300">
-            <img
-              src="/images/Hotel_guest_room_corner_warm_202606172336.jpeg"
-              className="w-full h-full object-cover scale-110"
-              alt="Warm hotel guest room corner"
-              loading="lazy"
-            />
-          </span>{' '}
-          home.
+          <span className="whitespace-nowrap">
+            <span className="inline-block align-middle mx-1.5 md:mx-3 w-16 md:w-32 h-8 md:h-16 rounded-full overflow-hidden border border-brand-plum/20 shadow-md transform -rotate-2 hover:rotate-0 transition-transform duration-300">
+              <img
+                src="/images/Hotel_guest_room_corner_warm_202606172336.jpeg"
+                className="w-full h-full object-cover scale-110"
+                alt="Warm hotel guest room corner"
+                loading="lazy"
+              />
+            </span>
+            home.
+          </span>
         </motion.h2>
 
         {/* Mission Subhead */}
