@@ -119,7 +119,7 @@ export default function ProjectsOverviewPage() {
                 exit={{ opacity: 0, scale: 0.95 }}
                 transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
                 className="flex flex-col text-left group cursor-pointer select-none"
-                onClick={() => navigate(`/projectt/${project.slug}`)}
+                onClick={() => navigate(`/projects/${project.slug}`)}
               >
                 {/* Image Frame with hover transition */}
                 <div className="relative aspect-[16/10] w-full overflow-hidden rounded-2xl border border-brand-charcoal/10 bg-brand-charcoal/5 mb-6 shadow-sm group-hover:shadow-md transition-shadow duration-500">
