@@ -3,63 +3,15 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { ArrowRight, Sparkles, Hotel, Layers } from 'lucide-react';
 import { Project } from './types';
+import { projects } from './data';
 
 export default function ProjectsOverviewPage() {
   const navigate = useNavigate();
   const [filter, setFilter] = useState<'all' | 'pip' | 'concept'>('all');
 
-  const projects: Project[] = [
-    {
-      id: 1,
-      slug: 'holiday-inn-express',
-      brand: 'Holiday Inn Express',
-      location: 'Fairhope, Alabama',
-      description: 'A full FF&E refresh delivered on brand standard and on schedule.',
-      isPlaceholder: false,
-      imagePath: '/images/holiday-inn.jpeg',
-      hoverImagePath: '/images/holiday-hover.jpeg',
-      keysCount: '84 Keys',
-    },
-    {
-      id: 2,
-      slug: 'hampton-inn',
-      brand: 'Hampton Inn',
-      location: 'Farmington, MO',
-      description: 'Complete lobby, guestroom casegoods, and custom soft seating procurement.',
-      isPlaceholder: false,
-      imagePath: '/images/hampton-inn.jpeg',
-      hoverImagePath: '/images/hampton-hover.jpeg',
-      keysCount: '92 Keys',
-    },
-    {
-      id: 3,
-      slug: 'quality-inn',
-      brand: 'Quality Inn',
-      location: 'Bemidji, MN',
-      description: 'Value engineering and direct sourcing for guestroom PIP compliance.',
-      isPlaceholder: false,
-      imagePath: '/images/quality-inn.jpeg',
-      hoverImagePath: '/images/quality-hover.jpeg',
-      keysCount: '78 Keys',
-    },
-    {
-      id: 4,
-      slug: 'lobby-lounge-concept',
-      brand: 'Lobby & Lounge Concept',
-      location: 'Featured Showcase',
-      description: 'An inspiring look at custom casegoods and lounge seating designed to create memorable first impressions.',
-      isPlaceholder: false,
-      imagePath: '/images/Hotel_lobby_lounge_golden_hour_202606172336.jpeg',
-      hoverImagePath: '/images/Lobby-hover.jpeg',
-      keysCount: 'Public Spaces',
-    },
-  ];
-
   const filteredProjects = projects.filter((project) => {
     if (filter === 'all') return true;
-    if (filter === 'pip') return project.slug !== 'lobby-lounge-concept';
-    if (filter === 'concept') return project.slug === 'lobby-lounge-concept';
-    return true;
+    return project.category === filter;
   });
 
   const categories = [

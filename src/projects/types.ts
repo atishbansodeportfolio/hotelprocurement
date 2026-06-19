@@ -8,4 +8,7 @@ export interface Project {
   imagePath?: string;
   hoverImagePath?: string;
   keysCount: string;
+  category: 'pip' | 'concept';
+  gallery?: string[];
 }
+

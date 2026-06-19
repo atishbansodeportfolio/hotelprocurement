@@ -2,18 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
-
-interface Project {
-  id: number;
-  slug: string;
-  brand: string;
-  location: string;
-  description: string;
-  isPlaceholder: boolean;
-  imagePath?: string;
-  hoverImagePath?: string;
-  keysCount: string;
-}
+import { Project } from '../projects/types';
+import { projects } from '../projects/data';
 
 export default function ProjectCarousel() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -33,57 +23,10 @@ export default function ProjectCarousel() {
   useEffect(() => {
     if (!isMobile) return;
     const timer = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % 4); // 4 is projects.length
+      setCurrentIndex((prev) => (prev + 1) % projects.length);
     }, 4000); // Auto slide every 4 seconds on mobile
     return () => clearInterval(timer);
   }, [isMobile, currentIndex]);
-
-  const projects: Project[] = [
-    {
-      id: 1,
-      slug: 'holiday-inn-express',
-      brand: 'Holiday Inn Express',
-      location: 'Fairhope, Alabama',
-      description: 'A full FF&E refresh delivered on brand standard and on schedule.',
-      isPlaceholder: false,
-      imagePath: '/images/holiday-inn.jpeg',
-      hoverImagePath: '/images/holiday-hover.jpeg',
-      keysCount: '84 Keys',
-    },
-    {
-      id: 2,
-      slug: 'hampton-inn',
-      brand: 'Hampton Inn',
-      location: 'Farmington, MO',
-      description: 'Complete lobby, guestroom casegoods, and custom soft seating procurement.',
-      isPlaceholder: false,
-      imagePath: '/images/hampton-inn.jpeg',
-      hoverImagePath: '/images/hampton-hover.jpeg',
-      keysCount: '92 Keys',
-    },
-    {
-      id: 3,
-      slug: 'quality-inn',
-      brand: 'Quality Inn',
-      location: 'Bemidji, MN',
-      description: 'Value engineering and direct sourcing for guestroom PIP compliance.',
-      isPlaceholder: false,
-      imagePath: '/images/quality-inn.jpeg',
-      hoverImagePath: '/images/quality-hover.jpeg',
-      keysCount: '78 Keys',
-    },
-    {
-      id: 4,
-      slug: 'lobby-lounge-concept',
-      brand: 'Lobby & Lounge Concept',
-      location: 'Featured Showcase',
-      description: 'An inspiring look at custom casegoods and lounge seating designed to create memorable first impressions.',
-      isPlaceholder: false,
-      imagePath: '/images/Hotel_lobby_lounge_golden_hour_202606172336.jpeg',
-      hoverImagePath: '/images/Lobby-hover.jpeg',
-      keysCount: 'Public Spaces',
-    },
-  ];
 
   const handlePrev = () => {
     setCurrentIndex((prev) => (prev - 1 + projects.length) % projects.length);
@@ -95,14 +38,14 @@ export default function ProjectCarousel() {
 
   const getCardProps = (index: number) => {
     let offset = index - currentIndex;
-    
+
     // Handle wrap around for circular carousel
     if (offset < -1 && offset < -projects.length / 2) {
       offset += projects.length;
     } else if (offset > 1 && offset > projects.length / 2) {
       offset -= projects.length;
     }
-    
+
     return offset;
   };
 
@@ -170,7 +113,7 @@ export default function ProjectCarousel() {
   return (
     <section id="our-work" className="pt-16 md:pt-24 pb-20 md:pb-28 bg-brand-cream border-t border-brand-charcoal/5 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        
+
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 md:mb-16 gap-6">
           <div className="max-w-2xl">
@@ -190,7 +133,7 @@ export default function ProjectCarousel() {
 
         {/* 3D Slider Area */}
         <div className="relative w-full flex items-center justify-center h-[260px] md:h-[400px] overflow-visible" style={{ perspective: '1200px', transformStyle: 'preserve-3d' }}>
-          
+
           {/* Card Carousel List */}
           <div className="relative w-full h-full flex items-center justify-center overflow-visible" style={{ transformStyle: 'preserve-3d' }}>
             {projects.map((project, idx) => {
@@ -239,9 +182,9 @@ export default function ProjectCarousel() {
                       className="w-full h-full object-cover select-none"
                       draggable={false}
                     />
-                    {project.hoverImagePath && isActive && (
+                    {((project.gallery && project.gallery.length > 2) || project.hoverImagePath) && isActive && (
                       <motion.img
-                        src={project.hoverImagePath}
+                        src={project.gallery && project.gallery.length > 2 ? project.gallery[2] : project.hoverImagePath}
                         alt={`${project.brand} hover view`}
                         initial={{ opacity: 0 }}
                         animate={{ opacity: hoveredIndex === idx ? 1 : 0 }}
@@ -267,7 +210,7 @@ export default function ProjectCarousel() {
                   <ChevronLeft size={20} className="md:w-6 md:h-6" />
                 </button>
               </div>
-              
+
               <div className="absolute right-[3%] md:right-[12%] z-30">
                 <button
                   onClick={handleNext}
