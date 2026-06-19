@@ -68,12 +68,6 @@ const phases: Phase[] = [
         description: 'Hosting site walkthroughs with project designers and owners to finalize details and secure franchise submittal signatures.',
         image: '/how-its-done/Screenshot 2026-06-19 182312.png',
       },
-      {
-        number: 8,
-        title: 'Line Tooling & Setup',
-        description: 'Calibrating assembly lines and programming CNC machines with approved specs to prepare for scale production runs.',
-        image: '/how-its-done/Screenshot 2026-06-19 182355.png',
-      },
     ],
   },
   {
@@ -81,25 +75,25 @@ const phases: Phase[] = [
     name: '3. Scale Manufacturing',
     steps: [
       {
-        number: 9,
+        number: 8,
         title: 'Raw Material Inspections',
         description: 'Verifying moisture content of timber, inspecting stone slabs for fissures, and testing density of structural metals.',
         image: '/how-its-done/Screenshot 2026-06-19 182406.png',
       },
       {
-        number: 10,
+        number: 9,
         title: 'High-Precision Cutting',
         description: 'Utilizing modern CNC tooling and laser cutting systems to dimension structural elements within millimeter tolerances.',
         image: '/how-its-done/Screenshot 2026-06-19 182421.png',
       },
       {
-        number: 11,
+        number: 10,
         title: 'Hand-Crafted Joinery Assembly',
         description: 'Artisans executing mortise-and-tenon and dowel joints to establish superior frame rigidity and long-term durability.',
         image: '/how-its-done/Screenshot 2026-06-19 182433.png',
       },
       {
-        number: 12,
+        number: 11,
         title: 'Sanding & Finish Coatings',
         description: 'Multi-stage wood sanding and polyurethane or lacquer coating cycles, creating durable, commercial-grade surface coatings.',
         image: '/how-its-done/Screenshot 2026-06-19 182448.png',
@@ -111,25 +105,25 @@ const phases: Phase[] = [
     name: '4. Quality Assurance',
     steps: [
       {
-        number: 13,
+        number: 12,
         title: 'CAL 133 Fire Inspections',
         description: 'Ensuring foams, barriers, and fabrics comply with hospitality fire resistance codes.',
         image: '/how-its-done/Screenshot 2026-06-19 182457.png',
       },
       {
-        number: 14,
+        number: 13,
         title: 'Double-Rub Wear Tests',
         description: 'Testing fabrics for Wyzenbeek double-rub performance to guarantee durability in high-traffic hotel environments.',
         image: '/how-its-done/Screenshot 2026-06-19 182507.png',
       },
       {
-        number: 15,
+        number: 14,
         title: 'Final Finish Inspections',
         description: 'Evaluating drawers, doors, alignment, and sheen level of veneers against sign-off prototype panels.',
         image: '/how-its-done/Screenshot 2026-06-19 182523.png',
       },
       {
-        number: 16,
+        number: 15,
         title: 'Compliance Audits & Submittals',
         description: 'Assembling franchise compliance documents for Marriott, Hilton, IHG, and Hyatt verification.',
         image: '/how-its-done/Screenshot 2026-06-19 182537.png',
@@ -141,19 +135,19 @@ const phases: Phase[] = [
     name: '5. Packing & Shipping',
     steps: [
       {
-        number: 17,
+        number: 16,
         title: 'Protective Packaging',
         description: 'Wrapping items in heavy foam sheeting, corner guards, and custom wood crates for ocean transit.',
         image: '/how-its-done/Screenshot 2026-06-19 182558.png',
       },
       {
-        number: 18,
+        number: 17,
         title: 'Warehouse Consolidation',
         description: 'Consolidating goods at central port warehouses, streamlining ocean freight container loads.',
         image: '/how-its-done/Screenshot 2026-06-19 182610.png',
       },
       {
-        number: 19,
+        number: 18,
         title: 'Container Ocean Transit',
         description: 'Overseeing container stowage plans, marine insurance filings, and ocean carrier departures.',
         image: '/how-its-done/Screenshot 2026-06-19 182637.png',
@@ -165,19 +159,19 @@ const phases: Phase[] = [
     name: '6. Logistics & Hand-off',
     steps: [
       {
-        number: 20,
+        number: 19,
         title: 'Customs Clearances',
         description: 'Coordinating customs documentation, tax classifications, and local port import releases.',
         image: '/how-its-done/Screenshot 2026-06-19 182700.png',
       },
       {
-        number: 21,
+        number: 20,
         title: 'Just-in-Time Site Logistics',
         description: 'Dispatching flatbed and cargo trucks directly to construction zones, avoiding double handling fees.',
         image: '/how-its-done/Screenshot 2026-06-19 182715.png',
       },
       {
-        number: 22,
+        number: 21,
         title: 'Onsite Setup & QA Sign-off',
         description: 'Positioning millwork, conducting quality deficiency sweeps, and handing keys over to hotel management.',
         image: '/how-its-done/Screenshot 2026-06-19 182733.png',
@@ -338,7 +332,7 @@ export default function HowItsDonePage() {
                       >
                         <span className="inline-flex items-center space-x-1.5 text-[10px] font-bold tracking-widest text-brand-plum bg-brand-plum/5 px-3 py-1 rounded-full mb-3 uppercase">
                           <CheckCircle2 size={10} className="stroke-[2.5]" />
-                          <span>Step 0{step.number}</span>
+                          <span>Step {step.number < 10 ? `0${step.number}` : step.number}</span>
                         </span>
                         
                         <h3 className="text-xl md:text-2xl font-light tracking-tight text-brand-charcoal mb-2 leading-tight">
@@ -422,7 +416,7 @@ export default function HowItsDonePage() {
                   Procurement Workflow
                 </span>
                 <span className="text-sm font-light text-white mt-1">
-                  Step 0{allSteps[lightboxIndex].number} — {allSteps[lightboxIndex].title}
+                  Step {allSteps[lightboxIndex].number < 10 ? `0${allSteps[lightboxIndex].number}` : allSteps[lightboxIndex].number} — {allSteps[lightboxIndex].title}
                 </span>
               </div>
               <button
