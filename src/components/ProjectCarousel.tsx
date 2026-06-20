@@ -9,6 +9,9 @@ export default function ProjectCarousel() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const [isHovered, setIsHovered] = useState(false);
+  const [isDragging, setIsDragging] = useState(false);
+  const [isTabVisible, setIsTabVisible] = useState(true);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -20,13 +23,22 @@ export default function ProjectCarousel() {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
+  // Monitor tab visibility to prevent animation queueing bugs
   useEffect(() => {
-    if (!isMobile) return;
+    const handleVisibility = () => {
+      setIsTabVisible(document.visibilityState === 'visible');
+    };
+    document.addEventListener('visibilitychange', handleVisibility);
+    return () => document.removeEventListener('visibilitychange', handleVisibility);
+  }, []);
+
+  useEffect(() => {
+    if (!isTabVisible || isDragging || (isHovered && !isMobile)) return;
     const timer = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % projects.length);
-    }, 4000); // Auto slide every 4 seconds on mobile
+    }, 3000); // Auto slide every 3 seconds
     return () => clearInterval(timer);
-  }, [isMobile, currentIndex]);
+  }, [isTabVisible, isDragging, isHovered, isMobile, currentIndex]);
 
   const handlePrev = () => {
     setCurrentIndex((prev) => (prev - 1 + projects.length) % projects.length);
@@ -111,7 +123,10 @@ export default function ProjectCarousel() {
   };
 
   return (
-    <section id="our-work" className="pt-16 md:pt-24 pb-20 md:pb-28 bg-brand-cream border-t border-brand-charcoal/5 overflow-hidden">
+    <section 
+      id="our-work" 
+      className="pt-16 md:pt-24 pb-20 md:pb-28 bg-brand-cream border-t border-brand-charcoal/5 overflow-hidden"
+    >
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
 
         {/* Header */}
@@ -132,7 +147,12 @@ export default function ProjectCarousel() {
         </div>
 
         {/* 3D Slider Area */}
-        <div className="relative w-full flex items-center justify-center h-[260px] md:h-[400px] overflow-visible" style={{ perspective: '1200px', transformStyle: 'preserve-3d' }}>
+        <div 
+          className="relative w-full flex items-center justify-center h-[260px] md:h-[400px] overflow-visible" 
+          style={{ perspective: '1200px', transformStyle: 'preserve-3d' }}
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+        >
 
           {/* Card Carousel List */}
           <div className="relative w-full h-full flex items-center justify-center overflow-visible" style={{ transformStyle: 'preserve-3d' }}>
@@ -164,7 +184,9 @@ export default function ProjectCarousel() {
                   drag={isMobile ? "x" : false}
                   dragConstraints={{ left: 0, right: 0 }}
                   dragElastic={0.25}
+                  onDragStart={() => setIsDragging(true)}
                   onDragEnd={(event, info) => {
+                    setIsDragging(false);
                     const threshold = 40;
                     if (info.offset.x < -threshold) {
                       handleNext();
