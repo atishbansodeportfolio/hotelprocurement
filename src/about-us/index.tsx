@@ -28,17 +28,17 @@ export default function AboutUsPage() {
       {/* 4. What Sets Us Apart */}
       <AboutUsSetsApart />
 
-      {/* 5. How It's Done (Procurement Phases Teaser) */}
+      {/* 5. Founders & Leadership Team (Meet Our Founder) */}
+      <AboutUsTeam />
+
+      {/* 6. How It's Done (Procurement Phases Teaser) */}
       <AboutUsHowItsDone />
 
-      {/* 6. Crafting Excellence Gallery */}
+      {/* 7. Crafting Excellence Gallery */}
       <AboutUsGallery />
 
-      {/* 7. Brand Monogram & Quote block */}
+      {/* 8. Brand Monogram & Quote block */}
       <AboutUsQuote />
-
-      {/* 8. Founders & Leadership Team */}
-      <AboutUsTeam />
     </div>
   );
 }

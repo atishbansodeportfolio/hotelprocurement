@@ -33,7 +33,7 @@ const founder: FounderDetails = {
   bio: 'Leading Divine with over 15 years of hospitality FF&E sourcing expertise. Yogin oversees global client partnerships and end-to-end procurement execution.',
   image: '/about-us/founder.jpeg',
   email: 'yogin@hotelprocurement.net',
-  linkedin: 'https://linkedin.com',
+  linkedin: 'https://www.linkedin.com/in/yogin-patel-3a1841111?utm_source=share_via&utm_content=profile&utm_medium=member_android',
 };
 
 export default function AboutUsTeam() {
