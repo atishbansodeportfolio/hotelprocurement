@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
-import MissionSection from './components/MissionSection';
 import ProjectCarousel from './components/ProjectCarousel';
 import FeatureList from './components/FeatureList';
 import CinematicSection from './components/CinematicSection';
@@ -53,11 +52,11 @@ function Home() {
       {/* Full-bleed Hero Banner */}
       <Hero />
 
-      {/* Embedded Inline-Image Mission Statement & CTA Box */}
-      <MissionSection />
-
       {/* Draggable Projects Horizontal Showcase */}
       <ProjectCarousel />
+
+      {/* Brand Logos Strip */}
+      <BrandStrip />
 
       {/* Split details layout with vertical interactive features and sticky image swap */}
       <FeatureList />
@@ -73,9 +72,6 @@ function Home() {
 
       {/* Count-up Metrics Stats Band (Deep Plum Background) */}
       <StatsBand />
-
-      {/* Brand Logos Placeholder Strip */}
-      <BrandStrip />
 
       {/* 1 Large + 3 Small Editorial Insights Grid */}
       <InsightsGrid />
