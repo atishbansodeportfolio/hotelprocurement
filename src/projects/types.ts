@@ -10,5 +10,7 @@ export interface Project {
   keysCount: string;
   category: 'pip' | 'concept';
   gallery?: string[];
+  narrative?: string[];
 }
+
 

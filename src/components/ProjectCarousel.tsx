@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { Project } from '../projects/types';
-import { projects } from '../projects/data';
+import { featuredProjects } from '../projects/data';
 
 export default function ProjectCarousel() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -35,27 +35,27 @@ export default function ProjectCarousel() {
   useEffect(() => {
     if (!isTabVisible || isDragging || (isHovered && !isMobile)) return;
     const timer = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % projects.length);
+      setCurrentIndex((prev) => (prev + 1) % featuredProjects.length);
     }, 3000); // Auto slide every 3 seconds
     return () => clearInterval(timer);
   }, [isTabVisible, isDragging, isHovered, isMobile, currentIndex]);
 
   const handlePrev = () => {
-    setCurrentIndex((prev) => (prev - 1 + projects.length) % projects.length);
+    setCurrentIndex((prev) => (prev - 1 + featuredProjects.length) % featuredProjects.length);
   };
 
   const handleNext = () => {
-    setCurrentIndex((prev) => (prev + 1) % projects.length);
+    setCurrentIndex((prev) => (prev + 1) % featuredProjects.length);
   };
 
   const getCardProps = (index: number) => {
     let offset = index - currentIndex;
 
     // Handle wrap around for circular carousel
-    if (offset < -1 && offset < -projects.length / 2) {
-      offset += projects.length;
-    } else if (offset > 1 && offset > projects.length / 2) {
-      offset -= projects.length;
+    if (offset < -1 && offset < -featuredProjects.length / 2) {
+      offset += featuredProjects.length;
+    } else if (offset > 1 && offset > featuredProjects.length / 2) {
+      offset -= featuredProjects.length;
     }
 
     return offset;
@@ -156,7 +156,7 @@ export default function ProjectCarousel() {
 
           {/* Card Carousel List */}
           <div className="relative w-full h-full flex items-center justify-center overflow-visible" style={{ transformStyle: 'preserve-3d' }}>
-            {projects.map((project, idx) => {
+            {featuredProjects.map((project, idx) => {
               const offset = getCardProps(idx);
               const variantName = getVariant(offset);
               const isActive = offset === 0;
@@ -169,11 +169,11 @@ export default function ProjectCarousel() {
                   animate={variantName}
                   initial={false}
                   transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
-                  className="absolute w-[82vw] md:w-[580px] aspect-[16/10] flex flex-col cursor-pointer animate-gpu"
+                  className={`absolute w-[82vw] md:w-[580px] aspect-[16/10] flex flex-col animate-gpu ${!isActive ? 'cursor-pointer' : 'cursor-default'}`}
                   onClick={() => {
                     if (offset === -1) handlePrev();
                     if (offset === 1) handleNext();
-                    if (offset === 0) navigate(`/projects/${project.slug}`);
+                    // Previous projects are not clickable to move/navigate to subpages
                   }}
                   onMouseEnter={() => {
                     if (isActive) setHoveredIndex(idx);
@@ -204,16 +204,6 @@ export default function ProjectCarousel() {
                       className="w-full h-full object-cover select-none"
                       draggable={false}
                     />
-                    {((project.gallery && project.gallery.length > 2) || project.hoverImagePath) && isActive && (
-                      <motion.img
-                        src={project.gallery && project.gallery.length > 2 ? project.gallery[2] : project.hoverImagePath}
-                        alt={`${project.brand} hover view`}
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: hoveredIndex === idx ? 1 : 0 }}
-                        transition={{ duration: 0.4 }}
-                        className="absolute inset-0 w-full h-full object-cover select-none pointer-events-none"
-                      />
-                    )}
                   </div>
                 </motion.div>
               );
@@ -260,18 +250,18 @@ export default function ProjectCarousel() {
             >
               <div className="flex-1 pr-6">
                 <h3 className="text-xl md:text-2xl font-semibold tracking-tight text-brand-charcoal leading-tight">
-                  {projects[currentIndex].brand}
+                  {featuredProjects[currentIndex].brand}
                 </h3>
                 <p className="text-xxs md:text-xs text-brand-charcoal/40 font-semibold uppercase tracking-wider mt-1">
-                  {projects[currentIndex].location}
+                  {featuredProjects[currentIndex].location}
                 </p>
                 <p className="text-xs md:text-sm text-brand-charcoal/60 font-light mt-3 max-w-sm md:max-w-md leading-relaxed tracking-wide">
-                  {projects[currentIndex].description}
+                  {featuredProjects[currentIndex].description}
                 </p>
               </div>
               <div className="text-right flex-shrink-0">
                 <span className="text-xl md:text-2xl font-semibold text-brand-plum block leading-tight">
-                  {projects[currentIndex].keysCount}
+                  {featuredProjects[currentIndex].keysCount}
                 </span>
                 <span className="text-[10px] md:text-xs text-brand-charcoal/40 font-light mt-1 block tracking-wide">
                   Capacity

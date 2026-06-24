@@ -20,6 +20,7 @@ import ServicesPage from './services';
 import OfferingLookbookPage from './services/OfferingLookbookPage';
 import HomeLookbookSection from './components/HomeLookbookSection';
 import HowItsDonePage from './how-its-done';
+import OurPortfolioSection from './components/OurPortfolioSection';
 
 function ScrollToHash() {
   const { hash, pathname } = useLocation();
@@ -54,6 +55,9 @@ function Home() {
 
       {/* Draggable Projects Horizontal Showcase */}
       <ProjectCarousel />
+
+      {/* Real Sourced Brand-wise Portfolio Grid */}
+      <OurPortfolioSection />
 
       {/* Brand Logos Strip */}
       <BrandStrip />

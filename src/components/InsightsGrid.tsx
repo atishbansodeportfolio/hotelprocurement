@@ -57,10 +57,10 @@ export default function InsightsGrid() {
         {/* Header */}
         <div className="max-w-xl mb-16">
           <span className="inline-block text-xs font-semibold uppercase tracking-[0.25em] text-brand-gold mb-4">
-            Divine Perspectives
+            Our Blogs
           </span>
           <h2 className="text-4xl md:text-5xl font-light tracking-tight text-brand-charcoal mb-4">
-            Discover Insights, Trends, and Inspiration.
+            Divine Perspectives
           </h2>
           <p className="text-sm md:text-base text-brand-charcoal/70 font-light tracking-wide">
             Analysis and perspectives on FF&E, manufacturing, and hotel design dynamics.
