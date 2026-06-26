@@ -114,7 +114,7 @@ export default function Navbar() {
 
   // Determine text and icon colors
   const isDarkTheme = isOpen || !isScrolled;
-  const textColorClass = isDarkTheme ? 'text-white hover:text-brand-gold' : 'text-brand-charcoal hover:text-brand-plum';
+  const textColorClass = isOpen ? 'text-white hover:text-brand-gold' : 'text-brand-charcoal hover:text-brand-plum';
 
   return (
     <>
@@ -126,50 +126,139 @@ export default function Navbar() {
             ? 'bg-transparent ' + (isScrolled ? 'py-4' : 'py-7')
             : isScrolled
               ? 'bg-brand-cream/40 backdrop-blur-sm shadow-xxs py-4'
-              : 'bg-transparent py-7'
+              : 'bg-white/95 backdrop-blur-md py-5 border-b border-brand-charcoal/5 shadow-xxs'
         }`}
       >
         <div className="w-full px-6 md:px-12 lg:px-16">
-          <div className="flex items-center justify-between">
-            {/* Logo */}
-            <a
-              href="#"
-              className={`flex items-center space-x-3 transition-colors duration-300 ${isDarkTheme ? 'text-white' : 'text-brand-charcoal'
-                }`}
-              onClick={(e) => {
-                e.preventDefault();
-                setIsOpen(false);
-                document.body.style.overflow = 'unset';
-                if (window.location.pathname !== '/') {
-                  navigate('/');
-                } else {
-                  window.scrollTo({ top: 0, behavior: 'smooth' });
-                }
-              }}
-            >
-              <img 
-                src="/logo-hotel-procurement.png" 
-                alt="Divine Design & Procurement Logo" 
-                className="h-10 w-auto object-contain"
-              />
-              <div className="flex flex-col text-left">
-                <span className="text-xl font-semibold tracking-tight leading-none">Divine</span>
-                <span className={`text-[9px] uppercase tracking-[0.22em] font-semibold mt-1.5 leading-none ${isDarkTheme ? 'text-brand-gold' : 'text-brand-plum'}`}>Procurement</span>
-              </div>
-            </a>
+          <div className="flex items-center justify-between w-full">
+            {/* Left Column (Logo) */}
+            <div className="flex-none md:flex-1 flex justify-start">
+              <a
+                href="#"
+                className={`flex items-center space-x-3 transition-colors duration-300 ${isDarkTheme ? 'text-white' : 'text-brand-charcoal'
+                  }`}
+                onClick={(e) => {
+                  e.preventDefault();
+                  setIsOpen(false);
+                  document.body.style.overflow = 'unset';
+                  if (window.location.pathname !== '/') {
+                    navigate('/');
+                  } else {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                  }
+                }}
+              >
+                <img 
+                  src="/favicon-2.png" 
+                  alt="Divine Design & Procurement Logo" 
+                  className="h-10 w-auto object-contain"
+                />
+                <div className="flex flex-col text-left">
+                  <span className="text-xl md:text-2xl font-semibold tracking-tight leading-none text-brand-plum">Divine</span>
+                  <span className="text-[9px] md:text-[9.5px] font-semibold mt-1 leading-none text-brand-plum">Desiign and Procurement LLC</span>
+                </div>
+              </a>
+            </div>
 
-            {/* Right Side Plus/Minus Toggle */}
-            <button
-              onClick={toggleDrawer}
-              className={`focus:outline-none transition-colors duration-300 z-50 hover:opacity-85 ${textColorClass}`}
-              aria-label="Toggle Navigation Drawer"
-            >
-              {isOpen ? (
-                <Minus size={28} className="stroke-[1.25]" />
-              ) : (
-                <Plus size={28} className="stroke-[1.25]" />
-              )}
-            </button>
+            {/* Middle Column (Centered Menus) */}
+            <div className="hidden md:flex flex-1 justify-center">
+              <div className="flex items-center space-x-8 lg:space-x-10">
+                {navLinks.filter(link => link.name !== 'Contact').map((link) => {
+                  if (link.subLinks) {
+                    return (
+                      <div key={link.name} className="group py-2">
+                        <button className="text-[11px] uppercase tracking-widest font-semibold text-brand-charcoal/80 hover:text-brand-plum transition-colors duration-300 flex items-center space-x-1 focus:outline-none cursor-pointer">
+                          <span>{link.name}</span>
+                          <svg className="w-3 h-3 transition-transform duration-300 group-hover:rotate-180" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                          </svg>
+                        </button>
+                        <div className="absolute left-0 right-0 w-full top-full bg-white border-t border-b border-brand-charcoal/5 shadow-md py-10 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-300 z-50 text-left before:absolute before:content-[''] before:left-0 before:right-0 before:-top-8 before:h-8">
+                          <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 grid grid-cols-4 gap-8 lg:gap-12">
+                            {/* Column 1: Featured Case Studies */}
+                            <div className="flex flex-col space-y-3">
+                              <span className="text-xs uppercase tracking-wider font-bold text-brand-gold">Featured Projects</span>
+                              <a href="/projects/americinn-pampa" onClick={(e) => handleLinkClick(e, '/projects/americinn-pampa')} className="text-[13px] md:text-sm font-medium text-brand-charcoal/70 hover:text-brand-plum transition-colors">AmericInn Pampa, TX</a>
+                              <a href="/projects/best-western-montrose" onClick={(e) => handleLinkClick(e, '/projects/best-western-montrose')} className="text-[13px] md:text-sm font-medium text-brand-charcoal/70 hover:text-brand-plum transition-colors">Best Western Montrose, CO</a>
+                              <a href="/projects/hampton-inn-st-louis" onClick={(e) => handleLinkClick(e, '/projects/hampton-inn-st-louis')} className="text-[13px] md:text-sm font-medium text-brand-charcoal/70 hover:text-brand-plum transition-colors">Hampton Inn St. Louis, IL</a>
+                              <a href="/projects" onClick={(e) => handleLinkClick(e, '/projects')} className="text-[13px] md:text-sm font-semibold text-brand-plum hover:underline pt-1">All Case Studies &rarr;</a>
+                            </div>
+
+                            {/* Column 2: Procurement Services */}
+                            <div className="flex flex-col space-y-3">
+                              <span className="text-xs uppercase tracking-wider font-bold text-brand-gold">Our Services</span>
+                              <a href="/services" onClick={(e) => handleLinkClick(e, '/services')} className="text-[13px] md:text-sm font-medium text-brand-charcoal/70 hover:text-brand-plum transition-colors">Custom Casegoods</a>
+                              <a href="/services" onClick={(e) => handleLinkClick(e, '/services')} className="text-[13px] md:text-sm font-medium text-brand-charcoal/70 hover:text-brand-plum transition-colors">Soft Seating Programs</a>
+                              <a href="/services" onClick={(e) => handleLinkClick(e, '/services')} className="text-[13px] md:text-sm font-medium text-brand-charcoal/70 hover:text-brand-plum transition-colors">Logistics & Freight</a>
+                              <a href="/services" onClick={(e) => handleLinkClick(e, '/services')} className="text-[13px] md:text-sm font-semibold text-brand-plum hover:underline pt-1">Explore Services &rarr;</a>
+                            </div>
+
+                            {/* Column 3: Standards & Compliance */}
+                            <div className="flex flex-col space-y-3">
+                              <span className="text-xs uppercase tracking-wider font-bold text-brand-gold">Compliance & PIP</span>
+                              <a href="/how-its-done" onClick={(e) => handleLinkClick(e, '/how-its-done')} className="text-[13px] md:text-sm font-medium text-brand-charcoal/70 hover:text-brand-plum transition-colors">IHG Formula Blue</a>
+                              <a href="/how-its-done" onClick={(e) => handleLinkClick(e, '/how-its-done')} className="text-[13px] md:text-sm font-medium text-brand-charcoal/70 hover:text-brand-plum transition-colors">Hilton Forever Young</a>
+                              <a href="/how-its-done" onClick={(e) => handleLinkClick(e, '/how-its-done')} className="text-[13px] md:text-sm font-medium text-brand-charcoal/70 hover:text-brand-plum transition-colors">Wyndham Standards</a>
+                              <a href="/how-its-done" onClick={(e) => handleLinkClick(e, '/how-its-done')} className="text-[13px] md:text-sm font-semibold text-brand-plum hover:underline pt-1">How It's Done &rarr;</a>
+                            </div>
+
+                            {/* Column 4: Sourcing Showcase Image Card */}
+                            <a href="/services/offerings/premium-casegoods" className="block relative overflow-hidden rounded-xl bg-brand-charcoal/5 border border-brand-charcoal/10 h-56 flex flex-col justify-end p-5 group/image cursor-pointer animate-fade-in" onClick={(e) => handleLinkClick(e, '/services/offerings/premium-casegoods')}>
+                              <img 
+                                src="/images/Hotel_guest_room_interior_warm_202606172336.jpeg" 
+                                alt="Premium interior showcase" 
+                                className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover/image:scale-105"
+                              />
+                              <div className="absolute inset-0 bg-gradient-to-t from-brand-charcoal/90 via-brand-charcoal/20 to-transparent z-10" />
+                              <div className="relative z-20 text-left">
+                                <span className="text-[9px] md:text-[10px] uppercase tracking-wider font-bold text-brand-gold">Featured Lookbook</span>
+                                <h4 className="text-white text-[13px] md:text-sm font-semibold mt-0.5 leading-tight">Guestroom Sourcing</h4>
+                                <p className="text-white/75 text-[10px] md:text-xs mt-1 font-light leading-snug">Turnkey custom casegoods and upholstery.</p>
+                              </div>
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    );
+                  }
+                  return (
+                    <a
+                      key={link.name}
+                      href={link.href}
+                      onClick={(e) => handleLinkClick(e, link.href || '#')}
+                      className="text-[11px] uppercase tracking-widest font-semibold text-brand-charcoal/80 hover:text-brand-plum transition-colors duration-300"
+                    >
+                      {link.name}
+                    </a>
+                  );
+                })}
+              </div>
+            </div>
+
+            {/* Right Column (CTA / Mobile Toggle Button) */}
+            <div className="flex-none md:flex-1 flex justify-end items-center space-x-4">
+              {/* CTA Button (Desktop only) */}
+              <a
+                href="#contact"
+                onClick={(e) => handleLinkClick(e, '#contact')}
+                className="hidden md:inline-flex items-center justify-center bg-brand-charcoal hover:bg-brand-plum text-white px-5 py-2.5 rounded-full text-[11px] font-semibold uppercase tracking-widest transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] shadow-xxs hover:shadow-xs cursor-pointer select-none"
+              >
+                Get in Touch
+              </a>
+
+              {/* Mobile Toggle Button */}
+              <button
+                onClick={toggleDrawer}
+                className={`md:hidden focus:outline-none transition-colors duration-300 z-50 hover:opacity-85 ${textColorClass}`}
+                aria-label="Toggle Navigation Drawer"
+              >
+                {isOpen ? (
+                  <Minus size={28} className="stroke-[1.25]" />
+                ) : (
+                  <Plus size={28} className="stroke-[1.25]" />
+                )}
+              </button>
+            </div>
           </div>
         </div>
       </nav>

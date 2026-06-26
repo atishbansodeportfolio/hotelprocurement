@@ -46,13 +46,13 @@ export default function Footer() {
               className="inline-flex items-center space-x-3 text-brand-charcoal"
             >
               <img 
-                src="/logo-hotel-procurement.png" 
+                src="/favicon-2.png" 
                 alt="Divine Design & Procurement Logo" 
                 className="h-10 w-auto object-contain"
               />
               <div className="flex flex-col text-left">
-                <span className="text-xl font-semibold tracking-tight leading-none">Divine</span>
-                <span className="text-[9px] uppercase tracking-[0.22em] font-semibold mt-1.5 leading-none text-brand-plum">Procurement</span>
+                <span className="text-xl md:text-2xl font-semibold tracking-tight leading-none text-brand-plum">Divine</span>
+                <span className="text-[9px] md:text-[9.5px] font-semibold mt-1 leading-none text-brand-plum">Desiign and Procurement LLC</span>
               </div>
             </a>
             <p className="text-xs md:text-sm text-brand-charcoal/50 font-light max-w-xs leading-relaxed tracking-wide">
@@ -72,7 +72,7 @@ export default function Footer() {
                 </svg>
               </a>
               <a
-                href="https://www.instagram.com/hotelprocurement?igsh=MWRkOG1uazI0bmM0bQ=="
+                href="https://www.instagram.com/hotelprocurement/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-brand-charcoal/60 hover:text-brand-plum transition-colors"

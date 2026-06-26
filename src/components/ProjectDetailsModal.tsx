@@ -122,13 +122,13 @@ export default function ProjectDetailsModal({ project, onClose }: ProjectDetails
           className="flex items-center space-x-3 transition-colors duration-300 text-brand-charcoal"
         >
           <img 
-            src="/logo-hotel-procurement.png" 
+            src="/favicon-2.png" 
             alt="Divine Design & Procurement Logo" 
             className="h-9 w-auto object-contain"
           />
           <div className="flex flex-col text-left">
-            <span className="text-lg font-semibold tracking-tight leading-none">Divine</span>
-            <span className="text-[8px] uppercase tracking-[0.22em] font-semibold mt-1 leading-none text-brand-plum">Procurement</span>
+            <span className="text-lg font-semibold tracking-tight leading-none text-brand-plum">Divine</span>
+            <span className="text-[8px] font-semibold mt-1 leading-none text-brand-plum">Desiign and Procurement LLC</span>
           </div>
         </a>
 
