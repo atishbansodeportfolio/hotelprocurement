@@ -123,13 +123,14 @@ export default function ProjectDetailsModal({ project, onClose }: ProjectDetails
         >
           <img 
             src="/favicon-2.png" 
-            alt="Divine Design & Procurement Logo" 
-            className="h-9 w-auto object-contain"
+            alt="Divine Design & Procurement Icon" 
+            className="h-11 w-auto object-contain"
           />
-          <div className="flex flex-col text-left">
-            <span className="text-lg font-semibold tracking-tight leading-none text-brand-plum">Divine</span>
-            <span className="text-[8px] font-semibold mt-1 leading-none text-brand-plum">Desiign and Procurement LLC</span>
-          </div>
+          <img 
+            src="/new-logo.png" 
+            alt="Divine Design & Procurement Logo" 
+            className="h-[42px] w-auto object-contain"
+          />
         </a>
 
         {/* Top Right Close Button */}

@@ -32,7 +32,7 @@ export default function Footer() {
         <div className="grid grid-cols-2 md:grid-cols-12 gap-10 md:gap-12 pb-12 border-b border-brand-charcoal/10">
           
           {/* Brand Logo column */}
-          <div className="col-span-2 md:col-span-4 flex flex-col space-y-4">
+          <div className="col-span-2 md:col-span-3 flex flex-col space-y-4">
             <a
               href="#"
               onClick={(e) => {
@@ -47,13 +47,14 @@ export default function Footer() {
             >
               <img 
                 src="/favicon-2.png" 
-                alt="Divine Design & Procurement Logo" 
-                className="h-10 w-auto object-contain"
+                alt="Divine Design & Procurement Icon" 
+                className="h-12 w-auto object-contain"
               />
-              <div className="flex flex-col text-left">
-                <span className="text-xl md:text-2xl font-semibold tracking-tight leading-none text-brand-plum">Divine</span>
-                <span className="text-[9px] md:text-[9.5px] font-semibold mt-1 leading-none text-brand-plum">Desiign and Procurement LLC</span>
-              </div>
+              <img 
+                src="/new-logo.png" 
+                alt="Divine Design & Procurement Logo" 
+                className="h-[46px] w-auto object-contain"
+              />
             </a>
             <p className="text-xs md:text-sm text-brand-charcoal/50 font-light max-w-xs leading-relaxed tracking-wide">
               Turnkey hotel FF&E design, sourcing, and logistics for premium hospitality properties globally.
@@ -88,7 +89,7 @@ export default function Footer() {
           </div>
 
           {/* Quick Links Column */}
-          <div className="col-span-1 md:col-span-3">
+          <div className="col-span-1 md:col-span-2">
             <h4 className="text-[10px] font-semibold uppercase tracking-widest text-brand-gold mb-4">
               Explore
             </h4>
@@ -132,37 +133,46 @@ export default function Footer() {
           </div>
 
           {/* Offices Column */}
-          <div className="col-span-1 md:col-span-5 grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-4">
+          <div className="col-span-2 md:col-span-7 grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-4">
             <div>
               <h5 className="text-[9px] font-semibold uppercase tracking-wider text-brand-gold mb-3">
-                Irving TX
+                Divine Design & Procurement LLC
               </h5>
               <p className="text-[11px] text-brand-charcoal/60 leading-relaxed font-light tracking-wide">
-                125 E John Carpenter <br />
-                Suite 500 <br />
-                Irving, TX 75062
+                1200 W Walnut Hill Ln #1050 <br />
+                Irving, Texas 75038 <br />
+                <span className="block mt-2 text-brand-charcoal/40 font-normal">
+                  +1 760 617 0800
+                </span>
               </p>
             </div>
 
             <div>
               <h5 className="text-[9px] font-semibold uppercase tracking-wider text-brand-gold mb-3">
-                Zhangzhou
+                Akshar (Zhangzhou) Trading Co., Ltd
               </h5>
               <p className="text-[11px] text-brand-charcoal/60 leading-relaxed font-light tracking-wide">
-                88 Shengli Rd <br />
-                Longwen District <br />
-                Zhangzhou, China
+                #2403, Building #1, Binjiangfu <br />
+                Wanke community <br />
+                No.101 Jinfeng South Road <br />
+                Xiangcheng District <br />
+                Zhangzhou City, Fujian Province <br />
+                <span className="block mt-2 text-brand-charcoal/40 font-normal">
+                  WeChat: ria71212 <br />
+                  +86 198 904 42279
+                </span>
               </p>
             </div>
 
             <div>
               <h5 className="text-[9px] font-semibold uppercase tracking-wider text-brand-gold mb-3">
-                Abu Dhabi
+                Akshar Impex Trading Company
               </h5>
               <p className="text-[11px] text-brand-charcoal/60 leading-relaxed font-light tracking-wide">
-                Al Khatem Tower <br />
-                Al Maryah Island <br />
-                Abu Dhabi, UAE
+                Abu Dhabi, UAE <br />
+                <span className="block mt-2 text-brand-charcoal/40 font-normal">
+                  +971 50 724 8002
+                </span>
               </p>
             </div>
           </div>

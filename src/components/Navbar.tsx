@@ -20,7 +20,8 @@ export default function Navbar() {
       if (!hasDarkHero) {
         setIsScrolled(true);
       } else {
-        const threshold = path === '/' ? window.innerHeight - 80 : 120;
+        // Shrink logo and animate navbar on the first scroll (20px threshold)
+        const threshold = 20;
         if (window.scrollY > threshold) {
           setIsScrolled(true);
         } else {
@@ -113,7 +114,7 @@ export default function Navbar() {
   };
 
   // Determine text and icon colors
-  const isDarkTheme = isOpen || !isScrolled;
+  const isDarkTheme = isOpen;
   const textColorClass = isOpen ? 'text-white hover:text-brand-gold' : 'text-brand-charcoal hover:text-brand-plum';
 
   return (
@@ -125,7 +126,7 @@ export default function Navbar() {
           isOpen
             ? 'bg-transparent ' + (isScrolled ? 'py-4' : 'py-7')
             : isScrolled
-              ? 'bg-brand-cream/40 backdrop-blur-sm shadow-xxs py-4'
+              ? 'bg-white/95 backdrop-blur-md border-b border-brand-charcoal/5 shadow-xxs py-4'
               : 'bg-white/95 backdrop-blur-md py-5 border-b border-brand-charcoal/5 shadow-xxs'
         }`}
       >
@@ -150,13 +151,18 @@ export default function Navbar() {
               >
                 <img 
                   src="/favicon-2.png" 
-                  alt="Divine Design & Procurement Logo" 
-                  className="h-10 w-auto object-contain"
+                  alt="Divine Design & Procurement Icon" 
+                  className={`w-auto object-contain transition-all duration-300 ${
+                    isScrolled ? 'h-9' : 'h-12'
+                  }`}
                 />
-                <div className="flex flex-col text-left">
-                  <span className="text-xl md:text-2xl font-semibold tracking-tight leading-none text-brand-plum">Divine</span>
-                  <span className="text-[9px] md:text-[9.5px] font-semibold mt-1 leading-none text-brand-plum">Desiign and Procurement LLC</span>
-                </div>
+                <img 
+                  src="/new-logo.png" 
+                  alt="Divine Design & Procurement Logo" 
+                  className={`w-auto object-contain transition-all duration-300 ${
+                    isScrolled ? 'h-[34px]' : 'h-[46px]'
+                  }`}
+                />
               </a>
             </div>
 
