@@ -153,15 +153,15 @@ export default function Navbar() {
                   src="/favicon-2.png" 
                   alt="Divine Design & Procurement Icon" 
                   className={`w-auto object-contain transition-all duration-300 ${
-                    isScrolled ? 'h-9' : 'h-12'
-                  }`}
+                    isScrolled ? 'h-6 md:h-9' : 'h-8 md:h-12'
+                  } ${isDarkTheme ? 'brightness-0 invert' : ''}`}
                 />
                 <img 
                   src="/new-logo.png" 
                   alt="Divine Design & Procurement Logo" 
                   className={`w-auto object-contain transition-all duration-300 ${
-                    isScrolled ? 'h-[34px]' : 'h-[46px]'
-                  }`}
+                    isScrolled ? 'h-[22px] md:h-[34px]' : 'h-[28px] md:h-[46px]'
+                  } ${isDarkTheme ? 'brightness-0 invert' : ''}`}
                 />
               </a>
             </div>

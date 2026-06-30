@@ -4,22 +4,26 @@ import { motion } from 'framer-motion';
 export default function AboutUsIntro() {
   return (
     <section className="relative pt-24 md:pt-36 pb-12 md:pb-16 bg-brand-cream overflow-hidden">
-      <div className="max-w-4xl mx-auto px-6 text-center">
+      {/* Decorative overlapping gold rings to fill empty space and frame content */}
+      <div className="absolute -left-20 top-[15%] w-80 h-80 border border-brand-gold/15 rounded-full pointer-events-none opacity-30 hidden lg:block" />
+      <div className="absolute -right-24 bottom-[10%] w-[450px] h-[450px] border border-brand-gold/10 rounded-full pointer-events-none opacity-30 hidden lg:block" />
+      
+      <div className="max-w-6xl mx-auto px-6 md:px-12 text-center relative z-10">
         
-        {/* Animated Headline with Inline Image (matching MissionSection) */}
+        {/* Animated Headline */}
         <motion.h2
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8 }}
-          className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-light tracking-tight text-brand-charcoal leading-[1.2] md:leading-[1.15] mb-10"
+          className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-light tracking-tight text-brand-charcoal leading-[1.2] md:leading-[1.15] mb-10"
         >
           Redefining hospitality <br className="hidden md:inline" />
           procurement with excellence.
         </motion.h2>
 
         {/* Intro Body Text in 2 columns */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 mt-12 text-left border-t border-brand-charcoal/10 pt-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 mt-12 text-left border-t border-brand-charcoal/10 pt-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -49,7 +53,7 @@ export default function AboutUsIntro() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.4 }}
-          className="relative mt-16 max-w-3xl mx-auto overflow-hidden rounded-2xl border border-brand-charcoal/5 shadow-xxs"
+          className="relative mt-16 max-w-5xl mx-auto overflow-hidden rounded-2xl border border-brand-charcoal/5 shadow-xxs"
         >
           <div className="relative aspect-[16/7] w-full">
             <img

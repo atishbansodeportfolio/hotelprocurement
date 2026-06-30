@@ -18,54 +18,36 @@ interface Phase {
 const phases: Phase[] = [
   {
     id: 'design',
-    name: '1. Design & CAD Drawing',
+    name: '1. Design & Sourcing',
     steps: [
       {
         number: 1,
-        title: 'Client Consultation & Brief',
-        description: 'Collaborating with client design teams to understand aesthetic directives, key brand touchpoints, and custom project scopes.',
+        title: 'Consultation & Briefing',
+        description: 'Collaboratively aligning on design aesthetics, key brand touchpoints, and custom project requirements.',
         image: '/how-its-done/Screenshot 2026-06-19 182132.png',
       },
       {
         number: 2,
-        title: 'Custom CAD Shop Drawings',
-        description: 'Creating high-fidelity engineering shop drawings specifying joins, materials, load-bearing frames, and finish tolerances.',
+        title: 'Custom CAD Drawings',
+        description: 'Creating high-fidelity engineering shop drawings specifying joins, materials, load-bearing frames, and tolerances.',
         image: '/how-its-done/Screenshot 2026-06-19 182144.png',
-      },
-      {
-        number: 3,
-        title: 'Material & Swatch Approvals',
-        description: 'Selecting and validating contract-grade fabrics, leathers, stone slabs, wood veneers, and custom metal coatings.',
-        image: '/how-its-done/Screenshot 2026-06-19 182201.png',
-      },
-      {
-        number: 4,
-        title: 'Budget Sourcing & Costing',
-        description: 'Aligning factory pricing models directly with target budgets, providing margins and cost-saving recommendations.',
-        image: '/how-its-done/Screenshot 2026-06-19 182218.png',
       },
     ],
   },
   {
     id: 'fabrication',
-    name: '2. Millwork & Mockups',
+    name: '2. Prototypes & Mockups',
     steps: [
       {
-        number: 5,
-        title: 'Structural Safety Reviews',
-        description: 'Conducting engineering load reviews to guarantee compliance with public space safety regulations and franchise durability specifications.',
-        image: '/how-its-done/Screenshot 2026-06-19 182240.png',
-      },
-      {
-        number: 6,
+        number: 3,
         title: 'Prototype Suite Fabrication',
-        description: 'Constructing full suite mockups in designated factory blocks to test layout alignments and fabric draping characteristics.',
+        description: 'Constructing full suite mockups in designated factory blocks to test layout alignments and safety compliance.',
         image: '/how-its-done/Screenshot 2026-06-19 182258.png',
       },
       {
-        number: 7,
-        title: 'Client Mockup Evaluations',
-        description: 'Hosting site walkthroughs with project designers and owners to finalize details and secure franchise submittal signatures.',
+        number: 4,
+        title: 'Client Evaluation & Approvals',
+        description: 'Hosting mockup walkthroughs with designers and owners to secure franchise submittal approvals.',
         image: '/how-its-done/Screenshot 2026-06-19 182312.png',
       },
     ],
@@ -75,27 +57,15 @@ const phases: Phase[] = [
     name: '3. Scale Manufacturing',
     steps: [
       {
-        number: 8,
-        title: 'Raw Material Inspections',
-        description: 'Verifying moisture content of timber, inspecting stone slabs for fissures, and testing density of structural metals.',
-        image: '/how-its-done/Screenshot 2026-06-19 182406.png',
-      },
-      {
-        number: 9,
-        title: 'High-Precision Cutting',
-        description: 'Utilizing modern CNC tooling and laser cutting systems to dimension structural elements within millimeter tolerances.',
+        number: 5,
+        title: 'High-Precision Milling',
+        description: 'Utilizing CNC tooling and laser cutting systems to dimension raw materials within millimeter tolerances.',
         image: '/how-its-done/Screenshot 2026-06-19 182421.png',
       },
       {
-        number: 10,
-        title: 'Hand-Crafted Joinery Assembly',
-        description: 'Artisans executing mortise-and-tenon and dowel joints to establish superior frame rigidity and long-term durability.',
-        image: '/how-its-done/Screenshot 2026-06-19 182433.png',
-      },
-      {
-        number: 11,
-        title: 'Sanding & Finish Coatings',
-        description: 'Multi-stage wood sanding and polyurethane or lacquer coating cycles, creating durable, commercial-grade surface coatings.',
+        number: 6,
+        title: 'Artisan Joinery & Finishing',
+        description: 'Executing hand-crafted joinery for superior frame rigidity, followed by multi-stage wood sanding and coatings.',
         image: '/how-its-done/Screenshot 2026-06-19 182448.png',
       },
     ],
@@ -105,75 +75,33 @@ const phases: Phase[] = [
     name: '4. Quality Assurance',
     steps: [
       {
-        number: 12,
-        title: 'CAL 133 Fire Inspections',
-        description: 'Ensuring foams, barriers, and fabrics comply with hospitality fire resistance codes.',
-        image: '/how-its-done/Screenshot 2026-06-19 182457.png',
-      },
-      {
-        number: 13,
-        title: 'Double-Rub Wear Tests',
-        description: 'Testing fabrics for Wyzenbeek double-rub performance to guarantee durability in high-traffic hotel environments.',
+        number: 7,
+        title: 'CAL 133 & Wear Inspections',
+        description: 'Ensuring foams, barriers, and fabrics comply with hospitality fire codes and wear specifications.',
         image: '/how-its-done/Screenshot 2026-06-19 182507.png',
       },
       {
-        number: 14,
-        title: 'Final Finish Inspections',
-        description: 'Evaluating drawers, doors, alignment, and sheen level of veneers against sign-off prototype panels.',
+        number: 8,
+        title: 'Final Inspection & Sign-off',
+        description: 'Evaluating finish sheen, alignments, and veneer consistency before preparing final brand compliance dossiers.',
         image: '/how-its-done/Screenshot 2026-06-19 182523.png',
-      },
-      {
-        number: 15,
-        title: 'Compliance Audits & Submittals',
-        description: 'Assembling franchise compliance documents for Marriott, Hilton, IHG, and Hyatt verification.',
-        image: '/how-its-done/Screenshot 2026-06-19 182537.png',
       },
     ],
   },
   {
     id: 'logistics',
-    name: '5. Packing & Shipping',
+    name: '5. Logistics & Hand-off',
     steps: [
       {
-        number: 16,
-        title: 'Protective Packaging',
-        description: 'Wrapping items in heavy foam sheeting, corner guards, and custom wood crates for ocean transit.',
+        number: 9,
+        title: 'Protective Packing & Transit',
+        description: 'Wrapping goods in protective foam and crates, consolidating containers, and filing marine transit departures.',
         image: '/how-its-done/Screenshot 2026-06-19 182558.png',
       },
       {
-        number: 17,
-        title: 'Warehouse Consolidation',
-        description: 'Consolidating goods at central port warehouses, streamlining ocean freight container loads.',
-        image: '/how-its-done/Screenshot 2026-06-19 182610.png',
-      },
-      {
-        number: 18,
-        title: 'Container Ocean Transit',
-        description: 'Overseeing container stowage plans, marine insurance filings, and ocean carrier departures.',
-        image: '/how-its-done/Screenshot 2026-06-19 182637.png',
-      },
-    ],
-  },
-  {
-    id: 'delivery',
-    name: '6. Logistics & Hand-off',
-    steps: [
-      {
-        number: 19,
-        title: 'Customs Clearances',
-        description: 'Coordinating customs documentation, tax classifications, and local port import releases.',
-        image: '/how-its-done/Screenshot 2026-06-19 182700.png',
-      },
-      {
-        number: 20,
-        title: 'Just-in-Time Site Logistics',
-        description: 'Dispatching flatbed and cargo trucks directly to construction zones, avoiding double handling fees.',
-        image: '/how-its-done/Screenshot 2026-06-19 182715.png',
-      },
-      {
-        number: 21,
-        title: 'Onsite Setup & QA Sign-off',
-        description: 'Positioning millwork, conducting quality deficiency sweeps, and handing keys over to hotel management.',
+        number: 10,
+        title: 'Customs & Just-in-Time Setup',
+        description: 'Clearing customs, dispatching site trucks to avoid storage fees, and positioning furniture for handover.',
         image: '/how-its-done/Screenshot 2026-06-19 182733.png',
       },
     ],
@@ -266,7 +194,7 @@ export default function HowItsDonePage() {
       <div className={`sticky z-30 bg-brand-cream/85 backdrop-blur-md border-b border-brand-charcoal/5 py-4 transition-all duration-300 ${
         isScrolled ? 'top-0' : 'top-16 md:top-20'
       }`}>
-        <div className="max-w-7xl mx-auto px-6 overflow-x-auto flex space-x-2 no-scrollbar">
+        <div className="max-w-7xl mx-auto px-6 overflow-x-auto flex justify-start md:justify-center space-x-2 no-scrollbar">
           <button
             onClick={() => handleTabClick('all')}
             className={`px-4 py-2 rounded-full text-xs font-medium tracking-wide transition-all cursor-pointer whitespace-nowrap ${

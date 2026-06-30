@@ -16,21 +16,10 @@ export default function ServicesHero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-light tracking-tight text-brand-charcoal leading-[1.2] md:leading-[1.15] mb-8"
+          className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-light tracking-tight text-brand-charcoal leading-[1.2] md:leading-[1.15] mb-8"
         >
           Comprehensive FF&E <br className="hidden md:inline" />
-          procurement{' '}
-          <span className="whitespace-nowrap">
-            <span className="inline-block align-middle mx-1.5 md:mx-3 w-14 md:w-28 h-7 md:h-14 rounded-full overflow-hidden border border-brand-plum/20 shadow-md transform rotate-2 hover:rotate-0 transition-transform duration-300">
-              <img
-                src="/images/Designer_hands_sketching_armchair_202606172336.jpeg"
-                className="w-full h-full object-cover scale-110"
-                alt="Design sketching"
-                loading="lazy"
-              />
-            </span>
-            solutions.
-          </span>
+          procurement solutions.
         </motion.h1>
 
         <motion.p

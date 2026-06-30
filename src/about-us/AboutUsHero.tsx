@@ -10,7 +10,7 @@ export default function AboutUsHero() {
   const scaleText = useTransform(scrollY, [0, 300], [1, 0.95]);
 
   return (
-    <section className="relative h-[45vh] md:h-[55vh] min-h-[320px] md:min-h-[400px] w-full overflow-hidden bg-brand-charcoal">
+    <section className="relative h-[55vh] md:h-[65vh] min-h-[400px] md:min-h-[500px] w-full overflow-hidden bg-brand-charcoal">
       {/* Background Image with Parallax and Plum overlay */}
       <motion.div 
         style={{ y: yBg }}

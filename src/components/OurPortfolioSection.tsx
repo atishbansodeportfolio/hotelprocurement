@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
-import { ArrowRight, ChevronLeft, ChevronRight, Hotel } from 'lucide-react';
+import { ArrowRight, ChevronLeft, ChevronRight, Hotel, MapPin } from 'lucide-react';
 import { Project } from '../projects/types';
 import { projects } from '../projects/data';
 
@@ -16,102 +16,148 @@ function ProjectMosaicRow({ project }: ProjectMosaicRowProps) {
   // Keep only the first 4 images for preview, as requested
   const currentImages = gallery.slice(0, 4);
 
+  const handleNavigate = () => {
+    navigate(`/projects/${project.slug}`);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
-    <div className="w-full bg-white rounded-3xl p-8 md:p-12 border border-brand-charcoal/5 shadow-md flex flex-col md:flex-row gap-8 md:gap-12 items-center">
+    <div className="w-full bg-white rounded-[32px] p-8 md:p-12 border border-brand-charcoal/5 shadow-xl shadow-brand-charcoal/[0.02] flex flex-col md:flex-row gap-10 md:gap-14 items-stretch transition-all duration-500 hover:shadow-2xl hover:shadow-brand-charcoal/[0.04] relative overflow-hidden group">
       
+      {/* Decorative top ambient color bar */}
+      <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-brand-gold/30 via-brand-plum/30 to-brand-gold/30"></div>
+
       {/* Project Info Block */}
-      <div className="w-full md:w-[35%] flex flex-col justify-center text-left">
-        <div className="flex items-center gap-2 mb-4">
-          <span className="inline-flex items-center gap-1 bg-brand-plum/10 text-brand-plum text-[9px] font-semibold uppercase tracking-widest px-2.5 py-1.5 rounded-md border border-brand-plum/10">
-            <Hotel className="w-3 h-3" />
-            {project.category === 'pip' ? 'Branded PIP' : 'Custom Concept'}
-          </span>
-          <span className="text-[10px] font-medium text-brand-charcoal/50 uppercase tracking-widest px-2 py-1 bg-brand-charcoal/5 rounded-md">
-            {project.keysCount}
-          </span>
+      <div className="w-full md:w-[38%] flex flex-col justify-between text-left py-2">
+        <div>
+          {/* Category & Keys Badges */}
+          <div className="flex flex-wrap items-center gap-2.5 mb-6">
+            <span className="inline-flex items-center gap-1.5 bg-brand-plum/[0.04] text-brand-plum text-[10px] font-semibold uppercase tracking-wider px-3.5 py-1.5 rounded-full border border-brand-plum/15">
+              <Hotel className="w-3.5 h-3.5 text-brand-plum/80" />
+              {project.category === 'pip' ? 'Branded PIP' : 'Custom Concept'}
+            </span>
+            <span className="inline-flex items-center gap-1 bg-brand-charcoal/[0.03] text-brand-charcoal/70 text-[10px] font-semibold uppercase tracking-wider px-3 py-1.5 rounded-full border border-brand-charcoal/10">
+              {project.keysCount}
+            </span>
+          </div>
+
+          {/* Project Title (Brand) */}
+          <div className="min-h-[64px] sm:min-h-[80px] md:min-h-[110px] flex items-center mb-3">
+            <h3 className="text-3xl sm:text-4xl md:text-5xl font-light tracking-tight text-brand-charcoal leading-[1.15] w-full text-left">
+              {project.brand}
+            </h3>
+          </div>
+          
+          {/* Location with Pin */}
+          <div className="flex items-center gap-2 text-[10px] sm:text-xs font-semibold tracking-[0.2em] text-brand-gold uppercase mb-6">
+            <MapPin className="w-3.5 h-3.5 text-brand-gold stroke-[2]" />
+            <span>{project.location}</span>
+          </div>
+
+          {/* Description with editorial quote styling */}
+          <p className="text-sm md:text-base text-brand-charcoal/70 font-light leading-relaxed tracking-wide mb-8 min-h-[72px] md:min-h-[80px] border-l-2 border-brand-gold/30 pl-4 py-0.5 italic text-left">
+            {project.description}
+          </p>
         </div>
-
-        <h3 className="text-3xl sm:text-4xl font-light tracking-tight text-brand-charcoal mb-2">
-          {project.brand}
-        </h3>
-        
-        <p className="text-xxs uppercase tracking-[0.2em] text-brand-gold font-semibold mb-4">
-          {project.location}
-        </p>
-
-        <p className="text-sm md:text-base text-brand-charcoal/70 font-light leading-relaxed tracking-wide mb-8 min-h-[60px]">
-          {project.description}
-        </p>
 
         <div>
           {/* Main Detail CTA */}
           <button
-            onClick={() => {
-              navigate(`/projects/${project.slug}`);
-              window.scrollTo({ top: 0, behavior: 'smooth' });
-            }}
-            className="inline-flex items-center space-x-3 bg-brand-charcoal hover:bg-brand-plum text-white px-7 py-3.5 rounded-full text-xs font-semibold uppercase tracking-widest transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] cursor-pointer shadow-xs hover:shadow-md"
+            onClick={handleNavigate}
+            className="group inline-flex items-center gap-3 bg-brand-charcoal hover:bg-brand-plum text-white px-8 py-4 rounded-full text-[10px] font-bold uppercase tracking-widest transition-all duration-300 hover:shadow-lg hover:shadow-brand-charcoal/10 hover:-translate-y-0.5 active:translate-y-0 cursor-pointer select-none"
           >
             <span>View Project Lookbook</span>
-            <ArrowRight size={14} />
+            <ArrowRight size={14} className="transition-transform duration-300 group-hover:translate-x-1" />
           </button>
         </div>
       </div>
 
-      {/* Static 4-Image Mosaic Grid Block (No Pagination Controls) */}
-      <div className="w-full md:w-[65%] flex flex-col justify-center">
+      {/* Interactive 4-Image Mosaic Grid Block (Clicking images also views project lookbook) */}
+      <div className="w-full md:w-[62%] flex flex-col justify-center">
         <div className="relative w-full aspect-[16/10] md:aspect-[18/10] grid grid-cols-2 gap-3 md:gap-4 overflow-visible select-none">
           
           {/* Left Column: 1 Large Tall Image */}
-          <div className="h-full w-full overflow-hidden rounded-2xl bg-brand-charcoal/5 border border-brand-charcoal/10 shadow-sm relative">
+          <div 
+            onClick={handleNavigate}
+            className="group/img h-full w-full overflow-hidden rounded-2xl bg-brand-charcoal/5 border border-brand-charcoal/10 shadow-sm relative cursor-pointer"
+          >
             {currentImages[0] && (
               <img
                 src={currentImages[0]}
                 alt={`${project.brand} featured space`}
-                className="absolute inset-0 w-full h-full object-cover"
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover/img:scale-105"
                 loading="lazy"
               />
             )}
+            <div className="absolute inset-0 bg-brand-charcoal/20 opacity-0 group-hover/img:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+              <span className="bg-white/95 backdrop-blur-xs text-brand-charcoal text-[10px] font-semibold uppercase tracking-wider px-3.5 py-1.5 rounded-full shadow-md transform translate-y-2 group-hover/img:translate-y-0 transition-all duration-300">
+                View Project
+              </span>
+            </div>
           </div>
 
           {/* Right Column: 1 Wide + 2 Square Sub-Grid */}
           <div className="grid grid-rows-2 gap-3 md:gap-4 h-full">
             
             {/* Top Right: Wide Image */}
-            <div className="h-full w-full overflow-hidden rounded-2xl bg-brand-charcoal/5 border border-brand-charcoal/10 shadow-sm relative">
+            <div 
+              onClick={handleNavigate}
+              className="group/img h-full w-full overflow-hidden rounded-2xl bg-brand-charcoal/5 border border-brand-charcoal/10 shadow-sm relative cursor-pointer"
+            >
               {currentImages[1] && (
                 <img
                   src={currentImages[1]}
                   alt={`${project.brand} alternative view`}
-                  className="absolute inset-0 w-full h-full object-cover"
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover/img:scale-105"
                   loading="lazy"
                 />
               )}
+              <div className="absolute inset-0 bg-brand-charcoal/20 opacity-0 group-hover/img:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                <span className="bg-white/95 backdrop-blur-xs text-brand-charcoal text-[10px] font-semibold uppercase tracking-wider px-3.5 py-1.5 rounded-full shadow-md transform translate-y-2 group-hover/img:translate-y-0 transition-all duration-300">
+                  View Project
+                </span>
+              </div>
             </div>
 
             {/* Bottom Right: Two Square Images Side by Side */}
             <div className="grid grid-cols-2 gap-3 md:gap-4 h-full">
               
-              <div className="h-full w-full overflow-hidden rounded-2xl bg-brand-charcoal/5 border border-brand-charcoal/10 shadow-sm relative">
+              <div 
+                onClick={handleNavigate}
+                className="group/img h-full w-full overflow-hidden rounded-2xl bg-brand-charcoal/5 border border-brand-charcoal/10 shadow-sm relative cursor-pointer"
+              >
                 {currentImages[2] && (
                   <img
                     src={currentImages[2]}
                     alt={`${project.brand} detail layout`}
-                    className="absolute inset-0 w-full h-full object-cover"
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover/img:scale-105"
                     loading="lazy"
                   />
                 )}
+                <div className="absolute inset-0 bg-brand-charcoal/20 opacity-0 group-hover/img:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                  <span className="bg-white/95 backdrop-blur-xs text-brand-charcoal text-[10px] font-semibold uppercase tracking-wider px-3 py-1 rounded-full shadow-md transform translate-y-2 group-hover/img:translate-y-0 transition-all duration-300">
+                    View
+                  </span>
+                </div>
               </div>
 
-              <div className="h-full w-full overflow-hidden rounded-2xl bg-brand-charcoal/5 border border-brand-charcoal/10 shadow-sm relative">
+              <div 
+                onClick={handleNavigate}
+                className="group/img h-full w-full overflow-hidden rounded-2xl bg-brand-charcoal/5 border border-brand-charcoal/10 shadow-sm relative cursor-pointer"
+              >
                 {currentImages[3] && (
                   <img
                     src={currentImages[3]}
                     alt={`${project.brand} interior accent`}
-                    className="absolute inset-0 w-full h-full object-cover"
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover/img:scale-105"
                     loading="lazy"
                   />
                 )}
+                <div className="absolute inset-0 bg-brand-charcoal/20 opacity-0 group-hover/img:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                  <span className="bg-white/95 backdrop-blur-xs text-brand-charcoal text-[10px] font-semibold uppercase tracking-wider px-3 py-1 rounded-full shadow-md transform translate-y-2 group-hover/img:translate-y-0 transition-all duration-300">
+                    View
+                  </span>
+                </div>
               </div>
 
             </div>
@@ -154,7 +200,7 @@ export default function OurPortfolioSection() {
               Our Portfolio
             </span>
             <h2 className="text-3xl md:text-5xl font-light tracking-tight text-brand-charcoal leading-tight">
-              Hospitality Sourcing <br />& Turned PIP Projects.
+              Featured Portfolio
             </h2>
           </div>
           
@@ -206,6 +252,22 @@ export default function OurPortfolioSection() {
               </motion.div>
             </AnimatePresence>
           </div>
+        </div>
+
+        {/* Progress Dot Indicators */}
+        <div className="flex items-center justify-center gap-2.5 mt-8">
+          {displayProjects.map((_, idx) => (
+            <button
+              key={idx}
+              onClick={() => setActiveProjectIdx(idx)}
+              className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${
+                activeProjectIdx === idx 
+                  ? 'w-8 bg-brand-plum' 
+                  : 'w-2 bg-brand-charcoal/20 hover:bg-brand-charcoal/40'
+              }`}
+              aria-label={`Go to slide ${idx + 1}`}
+            />
+          ))}
         </div>
 
       </div>
