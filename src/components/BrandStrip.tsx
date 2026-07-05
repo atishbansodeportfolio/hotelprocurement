@@ -29,7 +29,7 @@ export default function BrandStrip() {
 
       {/* Infinite scrolling cards marquee */}
       <div className="w-full overflow-hidden select-none flex">
-        
+
         {/* Infinite scrolling block 1 */}
         <div className="animate-marquee flex items-center justify-around">
           {brands.map((brand, idx) => (
@@ -46,7 +46,7 @@ export default function BrandStrip() {
             </div>
           ))}
         </div>
-        
+
         {/* Infinite scrolling block 2 (identical duplicate) */}
         <div className="animate-marquee flex items-center justify-around" aria-hidden="true">
           {brands.map((brand, idx) => (

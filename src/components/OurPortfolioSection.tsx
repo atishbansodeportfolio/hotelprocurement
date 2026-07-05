@@ -42,8 +42,8 @@ function ProjectMosaicRow({ project }: ProjectMosaicRowProps) {
           </div>
 
           {/* Project Title (Brand) */}
-          <div className="min-h-[64px] sm:min-h-[80px] md:min-h-[110px] flex items-center mb-3">
-            <h3 className="text-3xl sm:text-4xl md:text-5xl font-light tracking-tight text-brand-charcoal leading-[1.15] w-full text-left">
+          <div className="min-h-[48px] sm:min-h-[60px] md:min-h-[72px] flex items-center mb-3">
+            <h3 className="text-2xl sm:text-3xl md:text-4xl font-light tracking-tight text-brand-charcoal leading-[1.15] w-full text-left">
               {project.brand}
             </h3>
           </div>

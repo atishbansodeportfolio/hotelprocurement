@@ -8,14 +8,14 @@ export default function Hero() {
       <div
         className="hidden md:block absolute inset-0 bg-cover bg-center bg-no-repeat transition-transform duration-10000 ease-out scale-105"
         style={{
-          backgroundImage: "url('/images/hero-4-dt.jpeg')",
+          backgroundImage: "url('/images/hero-4-dt.webp')",
         }}
       />
       {/* Background Image - Mobile */}
       <div
         className="block md:hidden absolute inset-0 bg-cover bg-center bg-no-repeat transition-transform duration-10000 ease-out scale-105"
         style={{
-          backgroundImage: "url('/images/hero-4-mb.jpeg')",
+          backgroundImage: "url('/images/hero-4-mb.webp')",
         }}
       />
 

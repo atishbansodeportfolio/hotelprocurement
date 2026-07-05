@@ -11,14 +11,14 @@ const categories: LookbookCategory[] = [
     pageNumber: 6,
     description: 'Sleek, ergonomically designed seating options that provide optimal support and sophisticated styling for dining and lounge environments.',
     images: [
-      '/lookbook/chair-and-benches/hero-1.jpeg',
-      '/lookbook/chair-and-benches/Screenshot 2026-06-19 144835.png',
-      '/lookbook/chair-and-benches/Screenshot 2026-06-19 144849.png',
-      '/lookbook/chair-and-benches/Screenshot 2026-06-19 144905.png',
-      '/lookbook/chair-and-benches/Screenshot 2026-06-19 144925.png',
-      '/lookbook/chair-and-benches/Screenshot 2026-06-19 144939.png',
-      '/lookbook/chair-and-benches/Screenshot 2026-06-19 144959.png',
-      '/lookbook/chair-and-benches/Screenshot 2026-06-19 145008.png'
+      '/lookbook/chair-and-benches/hero-1.webp',
+      '/lookbook/chair-and-benches/Screenshot 2026-06-19 144835.webp',
+      '/lookbook/chair-and-benches/Screenshot 2026-06-19 144849.webp',
+      '/lookbook/chair-and-benches/Screenshot 2026-06-19 144905.webp',
+      '/lookbook/chair-and-benches/Screenshot 2026-06-19 144925.webp',
+      '/lookbook/chair-and-benches/Screenshot 2026-06-19 144939.webp',
+      '/lookbook/chair-and-benches/Screenshot 2026-06-19 144959.webp',
+      '/lookbook/chair-and-benches/Screenshot 2026-06-19 145008.webp'
     ]
   },
   {
@@ -26,14 +26,14 @@ const categories: LookbookCategory[] = [
     pageNumber: 26,
     description: 'Deep, comfortable clubchairs wrapped in high-durability leathers and premium fabrics, tailored for lobbies and luxury suites.',
     images: [
-      '/lookbook/clubchairs/hero.png',
-      '/lookbook/clubchairs/Screenshot 2026-06-19 171824.png',
-      '/lookbook/clubchairs/Screenshot 2026-06-19 171901.png',
-      '/lookbook/clubchairs/Screenshot 2026-06-19 171908.png',
-      '/lookbook/clubchairs/Screenshot 2026-06-19 171918.png',
-      '/lookbook/clubchairs/Screenshot 2026-06-19 171927.png',
-      '/lookbook/clubchairs/Screenshot 2026-06-19 171942.png',
-      '/lookbook/clubchairs/Screenshot 2026-06-19 172010.png'
+      '/lookbook/clubchairs/hero.webp',
+      '/lookbook/clubchairs/Screenshot 2026-06-19 171824.webp',
+      '/lookbook/clubchairs/Screenshot 2026-06-19 171901.webp',
+      '/lookbook/clubchairs/Screenshot 2026-06-19 171908.webp',
+      '/lookbook/clubchairs/Screenshot 2026-06-19 171918.webp',
+      '/lookbook/clubchairs/Screenshot 2026-06-19 171927.webp',
+      '/lookbook/clubchairs/Screenshot 2026-06-19 171942.webp',
+      '/lookbook/clubchairs/Screenshot 2026-06-19 172010.webp'
     ]
   },
   {
@@ -41,11 +41,11 @@ const categories: LookbookCategory[] = [
     pageNumber: 36,
     description: 'High-profile counter and bar seating solutions featuring solid framing and customizable height finishes.',
     images: [
-      '/lookbook/barstools/hero-3.jpeg',
-      '/lookbook/barstools/Screenshot 2026-06-19 172109.png',
-      '/lookbook/barstools/Screenshot 2026-06-19 172118.png',
-      '/lookbook/barstools/Screenshot 2026-06-19 172125.png',
-      '/lookbook/barstools/Screenshot 2026-06-19 172132.png'
+      '/lookbook/barstools/hero-3.webp',
+      '/lookbook/barstools/Screenshot 2026-06-19 172109.webp',
+      '/lookbook/barstools/Screenshot 2026-06-19 172118.webp',
+      '/lookbook/barstools/Screenshot 2026-06-19 172125.webp',
+      '/lookbook/barstools/Screenshot 2026-06-19 172132.webp'
     ]
   },
   {
@@ -53,15 +53,15 @@ const categories: LookbookCategory[] = [
     pageNumber: 42,
     description: 'Modular and structural sofas crafted for lobby lounge and hospitality guestroom applications, adhering to fire compliance standard CAL 133.',
     images: [
-      '/lookbook/sofas/hero-4.jpeg',
-      '/lookbook/sofas/Screenshot 2026-06-19 172157.png',
-      '/lookbook/sofas/Screenshot 2026-06-19 172205.png',
-      '/lookbook/sofas/Screenshot 2026-06-19 172212.png',
-      '/lookbook/sofas/Screenshot 2026-06-19 172221.png',
-      '/lookbook/sofas/Screenshot 2026-06-19 172231.png',
-      '/lookbook/sofas/Screenshot 2026-06-19 172236.png',
-      '/lookbook/sofas/Screenshot 2026-06-19 172249.png',
-      '/lookbook/sofas/Screenshot 2026-06-19 172304.png'
+      '/lookbook/sofas/hero-4.webp',
+      '/lookbook/sofas/Screenshot 2026-06-19 172157.webp',
+      '/lookbook/sofas/Screenshot 2026-06-19 172205.webp',
+      '/lookbook/sofas/Screenshot 2026-06-19 172212.webp',
+      '/lookbook/sofas/Screenshot 2026-06-19 172221.webp',
+      '/lookbook/sofas/Screenshot 2026-06-19 172231.webp',
+      '/lookbook/sofas/Screenshot 2026-06-19 172236.webp',
+      '/lookbook/sofas/Screenshot 2026-06-19 172249.webp',
+      '/lookbook/sofas/Screenshot 2026-06-19 172304.webp'
     ]
   },
   {
@@ -69,12 +69,12 @@ const categories: LookbookCategory[] = [
     pageNumber: 60,
     description: 'Custom stone and oak-top dining tables engineered to survive heavy commercial usage while maintaining a sleek, natural profile.',
     images: [
-      '/lookbook/dining-tables/hero-5.jpeg',
-      '/lookbook/dining-tables/Screenshot 2026-06-19 172404.png',
-      '/lookbook/dining-tables/Screenshot 2026-06-19 172411.png',
-      '/lookbook/dining-tables/Screenshot 2026-06-19 172419.png',
-      '/lookbook/dining-tables/Screenshot 2026-06-19 172433.png',
-      '/lookbook/dining-tables/Screenshot 2026-06-19 172442.png'
+      '/lookbook/dining-tables/hero-5.webp',
+      '/lookbook/dining-tables/Screenshot 2026-06-19 172404.webp',
+      '/lookbook/dining-tables/Screenshot 2026-06-19 172411.webp',
+      '/lookbook/dining-tables/Screenshot 2026-06-19 172419.webp',
+      '/lookbook/dining-tables/Screenshot 2026-06-19 172433.webp',
+      '/lookbook/dining-tables/Screenshot 2026-06-19 172442.webp'
     ]
   },
   {
@@ -82,14 +82,14 @@ const categories: LookbookCategory[] = [
     pageNumber: 74,
     description: 'Minimalist console tables, sideboards, and writing desks with thin iron framing, designed to maximize functional space.',
     images: [
-      '/lookbook/slim-collection-tables/hero-6.jpeg',
-      '/lookbook/slim-collection-tables/Screenshot 2026-06-19 172447.png',
-      '/lookbook/slim-collection-tables/Screenshot 2026-06-19 172459.png',
-      '/lookbook/slim-collection-tables/Screenshot 2026-06-19 172510.png',
-      '/lookbook/slim-collection-tables/Screenshot 2026-06-19 172518.png',
-      '/lookbook/slim-collection-tables/Screenshot 2026-06-19 172527.png',
-      '/lookbook/slim-collection-tables/Screenshot 2026-06-19 172540.png',
-      '/lookbook/slim-collection-tables/Screenshot 2026-06-19 172553.png'
+      '/lookbook/slim-collection-tables/hero-6.webp',
+      '/lookbook/slim-collection-tables/Screenshot 2026-06-19 172447.webp',
+      '/lookbook/slim-collection-tables/Screenshot 2026-06-19 172459.webp',
+      '/lookbook/slim-collection-tables/Screenshot 2026-06-19 172510.webp',
+      '/lookbook/slim-collection-tables/Screenshot 2026-06-19 172518.webp',
+      '/lookbook/slim-collection-tables/Screenshot 2026-06-19 172527.webp',
+      '/lookbook/slim-collection-tables/Screenshot 2026-06-19 172540.webp',
+      '/lookbook/slim-collection-tables/Screenshot 2026-06-19 172553.webp'
     ]
   },
   {
@@ -97,15 +97,15 @@ const categories: LookbookCategory[] = [
     pageNumber: 104,
     description: 'Bespoke end tables, coffee tables, and nesting sets serving as functional focal points for guestroom bedside and lounge groupings.',
     images: [
-      '/lookbook/occasional-tables/hero-7.jpeg',
-      '/lookbook/occasional-tables/Screenshot 2026-06-19 172655.png',
-      '/lookbook/occasional-tables/Screenshot 2026-06-19 172701.png',
-      '/lookbook/occasional-tables/Screenshot 2026-06-19 172709.png',
-      '/lookbook/occasional-tables/Screenshot 2026-06-19 172714.png',
-      '/lookbook/occasional-tables/Screenshot 2026-06-19 172723.png',
-      '/lookbook/occasional-tables/Screenshot 2026-06-19 172728.png',
-      '/lookbook/occasional-tables/Screenshot 2026-06-19 172735.png',
-      '/lookbook/occasional-tables/Screenshot 2026-06-19 172742.png'
+      '/lookbook/occasional-tables/hero-7.webp',
+      '/lookbook/occasional-tables/Screenshot 2026-06-19 172655.webp',
+      '/lookbook/occasional-tables/Screenshot 2026-06-19 172701.webp',
+      '/lookbook/occasional-tables/Screenshot 2026-06-19 172709.webp',
+      '/lookbook/occasional-tables/Screenshot 2026-06-19 172714.webp',
+      '/lookbook/occasional-tables/Screenshot 2026-06-19 172723.webp',
+      '/lookbook/occasional-tables/Screenshot 2026-06-19 172728.webp',
+      '/lookbook/occasional-tables/Screenshot 2026-06-19 172735.webp',
+      '/lookbook/occasional-tables/Screenshot 2026-06-19 172742.webp'
     ]
   },
   {
@@ -113,14 +113,14 @@ const categories: LookbookCategory[] = [
     pageNumber: 116,
     description: 'Walnut credenzas, double-door wardrobes, and custom millwork storage solutions constructed for high-capacity hotel storage.',
     images: [
-      '/lookbook/cabinets/hero-8.jpeg',
-      '/lookbook/cabinets/Screenshot 2026-06-19 172828.png',
-      '/lookbook/cabinets/Screenshot 2026-06-19 172836.png',
-      '/lookbook/cabinets/Screenshot 2026-06-19 172843.png',
-      '/lookbook/cabinets/Screenshot 2026-06-19 172853.png',
-      '/lookbook/cabinets/Screenshot 2026-06-19 172901.png',
-      '/lookbook/cabinets/Screenshot 2026-06-19 172908.png',
-      '/lookbook/cabinets/Screenshot 2026-06-19 172918.png'
+      '/lookbook/cabinets/hero-8.webp',
+      '/lookbook/cabinets/Screenshot 2026-06-19 172828.webp',
+      '/lookbook/cabinets/Screenshot 2026-06-19 172836.webp',
+      '/lookbook/cabinets/Screenshot 2026-06-19 172843.webp',
+      '/lookbook/cabinets/Screenshot 2026-06-19 172853.webp',
+      '/lookbook/cabinets/Screenshot 2026-06-19 172901.webp',
+      '/lookbook/cabinets/Screenshot 2026-06-19 172908.webp',
+      '/lookbook/cabinets/Screenshot 2026-06-19 172918.webp'
     ]
   },
   {
@@ -128,17 +128,17 @@ const categories: LookbookCategory[] = [
     pageNumber: 128,
     description: 'A curated spectrum of contract-grade leather and textile swatches meeting heavy double-rub ratings (Wyzenbeek/Martindale).',
     images: [
-      '/lookbook/leather-fabric-colours/hero.jpeg',
-      '/lookbook/leather-fabric-colours/Screenshot 2026-06-19 173008.png',
-      '/lookbook/leather-fabric-colours/Screenshot 2026-06-19 173017.png',
-      '/lookbook/leather-fabric-colours/Screenshot 2026-06-19 173026.png',
-      '/lookbook/leather-fabric-colours/Screenshot 2026-06-19 173036.png',
-      '/lookbook/leather-fabric-colours/Screenshot 2026-06-19 173052.png',
-      '/lookbook/leather-fabric-colours/Screenshot 2026-06-19 173101.png',
-      '/lookbook/leather-fabric-colours/Screenshot 2026-06-19 173106.png',
-      '/lookbook/leather-fabric-colours/Screenshot 2026-06-19 173113.png',
-      '/lookbook/leather-fabric-colours/Screenshot 2026-06-19 173119.png',
-      '/lookbook/leather-fabric-colours/Screenshot 2026-06-19 173128.png'
+      '/lookbook/leather-fabric-colours/hero.webp',
+      '/lookbook/leather-fabric-colours/Screenshot 2026-06-19 173008.webp',
+      '/lookbook/leather-fabric-colours/Screenshot 2026-06-19 173017.webp',
+      '/lookbook/leather-fabric-colours/Screenshot 2026-06-19 173026.webp',
+      '/lookbook/leather-fabric-colours/Screenshot 2026-06-19 173036.webp',
+      '/lookbook/leather-fabric-colours/Screenshot 2026-06-19 173052.webp',
+      '/lookbook/leather-fabric-colours/Screenshot 2026-06-19 173101.webp',
+      '/lookbook/leather-fabric-colours/Screenshot 2026-06-19 173106.webp',
+      '/lookbook/leather-fabric-colours/Screenshot 2026-06-19 173113.webp',
+      '/lookbook/leather-fabric-colours/Screenshot 2026-06-19 173119.webp',
+      '/lookbook/leather-fabric-colours/Screenshot 2026-06-19 173128.webp'
     ]
   }
 ];

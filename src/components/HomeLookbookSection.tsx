@@ -16,7 +16,7 @@ const teasers: LookbookTeaser[] = [
   {
     title: 'Sofas & Sectionals',
     categoryName: 'Sofas',
-    image: '/lookbook/sofas/hero-4.jpeg',
+    image: '/lookbook/sofas/hero-4.webp',
     count: 8,
     route: '/services/offerings/soft-seating',
     description: 'Contract-grade sofas styled for hotel lobbies and suites.',
@@ -24,7 +24,7 @@ const teasers: LookbookTeaser[] = [
   {
     title: 'Lounge Seating',
     categoryName: 'Clubchairs',
-    image: '/lookbook/clubchairs/hero.png',
+    image: '/lookbook/clubchairs/hero.webp',
     count: 8,
     route: '/services/offerings/soft-seating',
     description: 'Deep comfort clubchairs in premium leather and textiles.',
@@ -32,7 +32,7 @@ const teasers: LookbookTeaser[] = [
   {
     title: 'Premium Casegoods',
     categoryName: 'Cabinets',
-    image: '/lookbook/cabinets/hero-8.jpeg',
+    image: '/lookbook/cabinets/hero-8.webp',
     count: 8,
     route: '/services/offerings/premium-casegoods',
     description: 'Walnut credenzas, sideboards, and custom millwork wardrobes.',
@@ -40,7 +40,7 @@ const teasers: LookbookTeaser[] = [
   {
     title: 'Textiles & Finishes',
     categoryName: 'Leather & Fabric Colours',
-    image: '/lookbook/leather-fabric-colours/hero.jpeg',
+    image: '/lookbook/leather-fabric-colours/hero.webp',
     count: 11,
     route: '/services/offerings/doors-windows',
     description: 'Contract-grade swatches meeting high double-rub durability.',
