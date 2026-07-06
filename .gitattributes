@@ -1,0 +1,18 @@
+# Normalize line endings to LF for all text files
+# This ensures consistency across Windows, macOS, and Linux
+* text=auto
+
+# Explicitly set end-of-line to LF for common web files
+*.js    text eol=lf
+*.jsx   text eol=lf
+*.ts    text eol=lf
+*.tsx   text eol=lf
+*.json  text eol=lf
+*.css   text eol=lf
+*.scss  text eol=lf
+*.html  text eol=lf
+*.md    text eol=lf
+
+# Mark lock files as binary to prevent diff/merge issues
+*.lock  binary
+package-lock.json binary
