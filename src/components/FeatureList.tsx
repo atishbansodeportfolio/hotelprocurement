@@ -35,7 +35,7 @@ export default function FeatureList() {
       id: 3,
       title: 'Global Logistics',
       description: 'Timely delivery with precision, end to end. We manage consolidation, freight, customs clearance, and local warehousing to ensure materials arrive exactly when the site is ready.',
-      image: '/services/global-logistics.png',
+      image: '/images/turnkey-.jpeg',
     },
     {
       id: 4,
@@ -69,7 +69,7 @@ export default function FeatureList() {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-stretch">
-          
+
           {/* Left Column: Vertical Accordion Feature List */}
           <div className="flex flex-col justify-center">
             {/* Feature Accordion Items */}
@@ -84,9 +84,8 @@ export default function FeatureList() {
                   >
                     <div className="flex items-center justify-between">
                       <h3
-                        className={`text-xl md:text-2xl font-light tracking-tight transition-colors duration-300 ${
-                          isActive ? 'text-brand-plum font-normal' : 'text-brand-charcoal hover:text-brand-plum'
-                        }`}
+                        className={`text-xl md:text-2xl font-light tracking-tight transition-colors duration-300 ${isActive ? 'text-brand-plum font-normal' : 'text-brand-charcoal hover:text-brand-plum'
+                          }`}
                       >
                         {feature.title}
                       </h3>
@@ -111,7 +110,7 @@ export default function FeatureList() {
                           <p className="pt-4 pb-2 text-xs md:text-sm text-brand-charcoal/70 font-light leading-relaxed tracking-wide max-w-xl">
                             {feature.description}
                           </p>
-                          
+
                           {/* Mobile-only inline image inside active tab */}
                           <div className="lg:hidden block mt-4 mb-2">
                             <div className="w-full aspect-[16/10] rounded-xl overflow-hidden shadow-sm border border-brand-charcoal/10">
