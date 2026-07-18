@@ -4,6 +4,7 @@ import ServicesHero from './ServicesHero';
 import ServicesDetailList from './ServicesDetailList';
 import PremiumOfferingsList from './PremiumOfferingsList';
 import ServicesCTA from './ServicesCTA';
+import SEO from '../components/SEO';
 
 export default function ServicesPage() {
   // Scroll to top of the page when mounting
@@ -81,6 +82,11 @@ export default function ServicesPage() {
 
   return (
     <div className="bg-brand-cream min-h-screen text-brand-charcoal">
+      <SEO 
+        title="Our Services | Custom Hotel Furniture & Logistics" 
+        description="Explore our hospitality procurement services: direct global sourcing, custom furniture (casegoods, soft seating, millwork), brand compliance (Marriott, Hilton, IHG), and global logistics."
+        keywords="hotel furniture sourcing, custom hotel seating, hospitality casegoods sourcing, brand compliance, freight consolidation"
+      />
       <ServicesHero />
       <ServicesDetailList services={services} />
       <PremiumOfferingsList />

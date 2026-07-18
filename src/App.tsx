@@ -22,6 +22,8 @@ import HomeLookbookSection from './components/HomeLookbookSection';
 import HowItsDonePage from './how-its-done';
 import OurPortfolioSection from './components/OurPortfolioSection';
 
+import SEO from './components/SEO';
+
 function ScrollToHash() {
   const { hash, pathname } = useLocation();
 
@@ -50,6 +52,12 @@ function ScrollToHash() {
 function Home() {
   return (
     <>
+      <SEO 
+        title="Turnkey Hotel FF&E Sourcing & Design" 
+        description="Divine Design & Procurement delivers high-end hospitality procurement services, custom furniture manufacturing, and global turnkey logistics with direct factory pricing and franchise brand compliance."
+        keywords="hotel procurement, FF&E sourcing, custom hospitality furniture, hospitality logistics, brand compliance, Marriott FF&E, Hilton FF&E, hotel furniture design"
+        image="/new-logo.png"
+      />
       {/* Full-bleed Hero Banner */}
       <Hero />
 

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowUp, Camera, CheckCircle2, ChevronLeft, ChevronRight, X } from 'lucide-react';
+import SEO from '../components/SEO';
 
 interface Step {
   number: number;
@@ -176,6 +177,11 @@ export default function HowItsDonePage() {
 
   return (
     <div className="bg-brand-cream min-h-screen text-brand-charcoal antialiased">
+      <SEO 
+        title="How It's Done | 4-Phase Procurement Process" 
+        description="Discover our structured 4-phase hotel procurement process: Design & Sourcing, Production Control, Logistics, and On-site Execution. We guarantee on-time delivery and brand compliance."
+        keywords="hotel procurement stages, furniture logistics, quality assurance inspection, FF&E installation setup"
+      />
       
       {/* Hero Header */}
       <section className="pt-32 pb-12 md:pt-40 md:pb-16 text-center max-w-4xl mx-auto px-6 border-b border-brand-charcoal/5">

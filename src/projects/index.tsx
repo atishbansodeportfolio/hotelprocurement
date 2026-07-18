@@ -7,6 +7,7 @@ import { projects } from './data';
 import ProjectHero from './ProjectHero';
 import ProjectGallery from './ProjectGallery';
 import ProjectNarrative from './ProjectNarrative';
+import SEO from '../components/SEO';
 
 export default function ProjectDetailsPage() {
   const { clientName } = useParams<{ clientName: string }>();
@@ -42,6 +43,12 @@ export default function ProjectDetailsPage() {
       transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
       className="bg-brand-cream flex flex-col pt-24"
     >
+      <SEO 
+        title={`${project.brand} - ${project.location}`} 
+        description={`Sourcing project case study: ${project.brand} in ${project.location}. ${project.description}`}
+        keywords={`hotel procurement, ${project.brand.toLowerCase()} sourcing, hotel furniture ${project.location.toLowerCase()}, hotel furniture case study`}
+        image={project.imagePath}
+      />
       <main className="flex-grow max-w-4xl w-full mx-auto px-6 md:px-12 pt-8 md:pt-14 pb-24 flex flex-col">
         <ProjectHero project={project} />
         <ProjectGallery project={project} />

@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { ArrowRight, Sparkles, Hotel, Layers } from 'lucide-react';
 import { Project } from './types';
 import { projects } from './data';
+import SEO from '../components/SEO';
 
 export default function ProjectsOverviewPage() {
   const navigate = useNavigate();
@@ -22,6 +23,11 @@ export default function ProjectsOverviewPage() {
 
   return (
     <div className="bg-brand-cream min-h-screen pt-28 pb-24">
+      <SEO 
+        title="Our Work | Hotel FF&E Case Studies" 
+        description="Explore our portfolio of hotel FF&E case studies, featuring brand-compliant PIP upgrades (Marriott, Hilton), custom furniture manufacturing, and lobby designs."
+        keywords="hotel procurement portfolio, Marriott PIP design, hotel casework examples, hospitality custom furnishings"
+      />
       <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16">
         
         {/* Header Hero Section */}

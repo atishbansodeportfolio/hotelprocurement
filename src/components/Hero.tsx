@@ -23,14 +23,14 @@ export default function Hero() {
 
       {/* Hero Content */}
       <div className="relative z-10 max-w-7xl mx-auto w-full px-6 lg:px-8 text-center text-white flex flex-col items-center justify-center -translate-y-8 md:-translate-y-16">
-        <motion.span
+        <motion.h1
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
           className="inline-block text-xl md:text-3xl lg:text-4xl font-bold uppercase tracking-[0.06em] md:tracking-[0.18em] text-brand-gold mb-6 leading-tight max-w-none whitespace-normal md:whitespace-nowrap"
         >
           Hospitality Procurement,<br className="md:hidden" /> Perfected.
-        </motion.span>
+        </motion.h1>
 
 
 

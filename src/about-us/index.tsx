@@ -7,6 +7,7 @@ import AboutUsHowItsDone from './AboutUsHowItsDone';
 import AboutUsGallery from './AboutUsGallery';
 import AboutUsQuote from './AboutUsQuote';
 import AboutUsTeam from './AboutUsTeam';
+import SEO from '../components/SEO';
 
 export default function AboutUsPage() {
   useEffect(() => {
@@ -16,6 +17,11 @@ export default function AboutUsPage() {
 
   return (
     <div className="bg-brand-cream">
+      <SEO 
+        title="About Us | Hospitality Sourcing Experts" 
+        description="Learn about Divine Design & Procurement, our core values, and our founder Yogin Patel. Discover how we lead custom hotel furniture sourcing and global turnkey logistics."
+        keywords="about divine design, hotel procurement leadership, hospitality sourcing team, Yogin Patel, hotel FF&E experience"
+      />
       {/* 1. Hero banner */}
       <AboutUsHero />
 

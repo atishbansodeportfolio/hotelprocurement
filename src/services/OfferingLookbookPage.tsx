@@ -3,6 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowLeft, ChevronLeft, ChevronRight, X, Image as ImageIcon, Plus, ArrowUp } from 'lucide-react';
 import { LookbookCategory } from './types';
+import SEO from '../components/SEO';
 
 // Structured Lookbook Categories with Page Numbers (from user screenshot index)
 const categories: LookbookCategory[] = [
@@ -226,6 +227,12 @@ export default function OfferingLookbookPage() {
 
   return (
     <div className="bg-brand-cream min-h-screen text-brand-charcoal">
+      <SEO 
+        title={`${offeringInfo.title} Lookbook`} 
+        description={`Browse our premium design lookbook for ${offeringInfo.title} by Divine Design & Procurement. Featuring ${activeCategory.name}: ${activeCategory.description}`}
+        keywords={`hotel lookbook, ${offeringInfo.title.toLowerCase()}, hospitality lookbook, custom hotel furniture`}
+        image={activeCategory.images[0]}
+      />
       
       {/* Main Grid Layout */}
       <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 pt-28 md:pt-32 pb-24">
