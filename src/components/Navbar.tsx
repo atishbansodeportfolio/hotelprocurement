@@ -74,6 +74,7 @@ export default function Navbar() {
     },
     { name: 'Lookbook', href: '/services/offerings/premium-casegoods' },
     { name: 'How It\'s Done', href: '/how-its-done' },
+    { name: 'Blog', href: '/blog' },
     { name: 'Contact', href: '#contact' }
   ];
 

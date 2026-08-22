@@ -21,6 +21,8 @@ import OfferingLookbookPage from './services/OfferingLookbookPage';
 import HomeLookbookSection from './components/HomeLookbookSection';
 import HowItsDonePage from './how-its-done';
 import OurPortfolioSection from './components/OurPortfolioSection';
+import BlogOverviewPage from './blog/BlogOverviewPage';
+import BlogDetailsPage from './blog/BlogDetailsPage';
 
 import SEO from './components/SEO';
 
@@ -117,6 +119,8 @@ function App() {
             <Route path="/how-its-done" element={<HowItsDonePage />} />
             <Route path="/projects" element={<ProjectsOverviewPage />} />
             <Route path="/projects/:clientName" element={<ProjectDetailsPage />} />
+            <Route path="/blog" element={<BlogOverviewPage />} />
+            <Route path="/blog/:slug" element={<BlogDetailsPage />} />
           </Routes>
         </main>
 
