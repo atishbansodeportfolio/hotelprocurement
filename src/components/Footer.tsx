@@ -180,11 +180,27 @@ export default function Footer() {
         </div>
 
         {/* Footer Sub-bar */}
-        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between pt-8 text-[11px] text-brand-charcoal/50 font-light tracking-wide space-y-4 sm:space-y-0">
+        <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between pt-8 text-[11px] text-brand-charcoal/60 font-light tracking-wide gap-4">
           <div>
             <span>&copy; {currentYear} Divine Design and Procurement LLC. All rights reserved.</span>
           </div>
-          <div className="flex space-x-6">
+          <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
+            <a
+              href="/privacy-policy"
+              onClick={(e) => handleLinkClick(e, '/privacy-policy')}
+              className="hover:text-brand-plum transition-colors font-normal"
+            >
+              Privacy Policy
+            </a>
+            <span className="text-brand-charcoal/20">|</span>
+            <a
+              href="/terms-and-conditions"
+              onClick={(e) => handleLinkClick(e, '/terms-and-conditions')}
+              className="hover:text-brand-plum transition-colors font-normal"
+            >
+              Terms &amp; Conditions
+            </a>
+            <span className="text-brand-charcoal/20">|</span>
             <a href="mailto:yogin@hotelprocurement.net" className="hover:text-brand-plum transition-colors">
               yogin@hotelprocurement.net
             </a>

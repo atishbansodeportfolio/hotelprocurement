@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Send, CheckCircle } from 'lucide-react';
 
@@ -138,15 +139,25 @@ export default function Contact() {
                   />
                 </div>
 
-                {/* Submit button */}
-                <div>
+                {/* Submit button & Compliance Notice */}
+                <div className="pt-2 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                   <button
                     type="submit"
-                    className="inline-flex items-center space-x-2 px-8 py-3.5 text-xs font-semibold uppercase tracking-wider text-white bg-brand-charcoal rounded-full hover:bg-brand-plum hover:scale-103 transition-all duration-300 shadow-sm"
+                    className="inline-flex items-center justify-center space-x-2 px-8 py-3.5 text-xs font-semibold uppercase tracking-wider text-white bg-brand-charcoal rounded-full hover:bg-brand-plum hover:scale-103 transition-all duration-300 shadow-sm shrink-0"
                   >
                     <span>Send Message</span>
                     <Send size={12} />
                   </button>
+                  <p className="text-[11px] text-brand-charcoal/60 leading-normal font-light">
+                    Inquiries are received by Divine Design &amp; Procurement LLC. By submitting, you agree to our{' '}
+                    <Link to="/terms-and-conditions" className="underline hover:text-brand-plum transition-colors font-normal">
+                      Terms
+                    </Link>{' '}
+                    and acknowledge our{' '}
+                    <Link to="/privacy-policy" className="underline hover:text-brand-plum transition-colors font-normal">
+                      Privacy Policy
+                    </Link>.
+                  </p>
                 </div>
               </form>
             )}
