@@ -7,7 +7,6 @@ import FeatureList from './components/FeatureList';
 import CinematicSection from './components/CinematicSection';
 import ProcessSection from './components/ProcessSection';
 import StatsBand from './components/StatsBand';
-import BrandStrip from './components/BrandStrip';
 import InsightsGrid from './components/InsightsGrid';
 import FAQ from './components/FAQ';
 import ClosingCTA from './components/ClosingCTA';
@@ -71,8 +70,6 @@ function Home() {
       {/* Real Sourced Brand-wise Portfolio Grid */}
       <OurPortfolioSection />
 
-      {/* Brand Logos Strip */}
-      <BrandStrip />
 
       {/* Split details layout with vertical interactive features and sticky image swap */}
       <FeatureList />
